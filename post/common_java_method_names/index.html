@@ -36,7 +36,7 @@
 
 
 
-<link href="../../sass/main.min.d0e9b7942ea4268149b8f5c348e3d8fb068b723057bba8b9dd8a75e6abaee977.css" rel="stylesheet">
+<link href="../../sass/main.min.0f1d63121256541625aa278410d089eefde38344ca29e9244ebfb24f2cf0aa60.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -50,7 +50,7 @@
 <meta itemprop="description" content="在讨论了一些常见的类名前缀和后缀之后，本文想讨论一些方法命名的惯例。同样，这一切都与Java有关&mdash;其他语言则完全不同。">
 <meta itemprop="datePublished" content="2020-12-22T18:20:59&#43;08:00" />
 <meta itemprop="dateModified" content="2020-12-22T18:20:59&#43;08:00" />
-<meta itemprop="wordCount" content="2797">
+<meta itemprop="wordCount" content="2728">
 
 
 
@@ -146,8 +146,8 @@
     <div class="post-content">
       <p>在讨论了<a href="http://blog.joda.org/2011/08/implementations-of-interfaces-prefixes.html">一些</a><a href="http://blog.joda.org/2011/08/more-java-prefixs-and-suffixes.html">常见</a>的类名前缀和后缀之后，本文想讨论一些方法命名的惯例。同样，这一切都与Java有关&mdash;其他语言则完全不同。</p>
 <h2 id="通用方法命名模式">通用方法命名模式</h2>
-<p>不论对错与否，Java都是一种基于模式的语言。我的意思是，在Java开发中，很多被认为是最佳实践的东西都是通过遵循标准模式来实现的。当然，这里指的不仅仅是 <a href="http://en.wikipedia.org/wiki/Design_Patterns_%28book%29">四人帮</a> 这本书，还包括无数的其他模式。这些模式中通常都是 &ldquo;视觉模式 &ldquo;和代码模式一样多。举个例子，通过以某种一致的方式布局我们的代码，帮助了无数跟随我们的开发者。</p>
-<p>应当注意的是，我并不是说基于模式/命名的方法比新的语言特性更好。只是恰好在Java开发中，对于我们要处理的很多问题，这是最佳实践。 (剪切和粘贴是Java开发中的一种生活方式，这种方式也有好的一面。)</p>
+<p>不论对错与否，Java都是一种基于模式的语言。我的意思是，在Java开发中，很多被认为是最佳实践的东西都是通过遵循标准模式来实现的。当然，这里指的不仅仅是 <a href="http://en.wikipedia.org/wiki/Design_Patterns_%28book%29">Gang of Four</a> 这本书，还包括无数的其他模式。这些模式中通常都是 &ldquo;视觉模式 &ldquo;和代码模式一样多。举个例子，通过以某种一致的方式布局我们的代码，这帮助了无数使用我们代码的开发者。</p>
+<p>应当注意的是，我并不是说基于模式/命名的方法比新的语言特性更好。只是恰好在Java开发中，对于我们要处理的很多问题，这是最佳实践。 （剪切和粘贴是Java开发中的一种生活方式，这种方式也有好的一面)</p>
 <p>在无数模式中，其中一种模式是方法命名模式。Java中的这种方法受两方面的影响很大&mdash;JDK中命名选择的规模和主导地位，以及Java-Beans的设计。早在2006年，我就为不可变类<a href="http://blog.joda.org/2006/05/immutable-pojos-improving-on_6406.html">提出</a>了一些额外的变体，之后便通过<a href="https://www.joda.org/joda-time/">Joda-Time</a>推广开来了。下面这个列表其实包括了这两方面的内容，再加上我从ThreeTen/JSR-310中添加的一些新内容。当然，并不是要列出所有可能的方法命名惯例，只是列出了一些比较流行的方法，以及那些具有特定语义的方法。</p>
 <table>
 <thead>
@@ -157,10 +157,6 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>get</td>
-<td>从一个对象中获取一些东西，比如 bean.getBar()。这也可以和键一起使用，通过索引查找一个 list 或通过键查找一个 map，如 list.get(index) 或 map.get(key)。</td>
-</tr>
 <tr>
 <td>get</td>
 <td>从一个对象中获取一些东西，比如 bean.getBar()。这也可以和键一起使用，通过索引查找一个 list 或通过键查找一个 map，如 list.get(index) 或 map.get(key)。</td>
@@ -259,9 +255,9 @@
 </tbody>
 </table>
 <h2 id="精彩问答">精彩问答</h2>
-<p>Q: 在列表中增加 &ldquo;append&quot;如何？</p>
-<p>A: 我对 &ldquo;append &ldquo;加入到列表中没意见。该列表建议使用过去分词 &ldquo;appendedWith&rdquo;，但这有点笨拙。在JSR-310中，我们有以 &ldquo;at &ldquo;为前缀的方法&ndash;date.atTime(&hellip;)。这在时间领域是有意义的。</p>
-<p>Q: 你对什么时候用 &ldquo;of&rdquo;，什么时候用 &ldquo;from&rdquo;，有好的建议吗？？Java 8 DateTime也把它们混在一起（甚至在同一个类中），这让我觉得，一定有区别：from(TemporalAccessor)，为什么不是of()？所有of()方法的JavaDoc甚至都说是 &ldquo;获取自&rdquo;。
+<p>Q: 在list中增加 &ldquo;append&quot;如何？</p>
+<p>A: 我对 &ldquo;append &ldquo;加入到list中没意见。该list建议使用过去分词 &ldquo;appendedWith&rdquo;，但这有点笨拙。在JSR-310中，我们有以 &ldquo;at &ldquo;为前缀的方法&ndash;date.atTime(&hellip;)。这在时间领域是有意义的。</p>
+<p>Q: 你对什么时候用 &ldquo;of&rdquo;，什么时候用 &ldquo;from&rdquo;，有哪些好的建议吗？Java 8 DateTime也把它们混在一起（甚至在同一个类中），这让我觉得，一定有区别：from(TemporalAccessor)，为什么不是of()？所有of()方法的JavaDoc甚至都说是 &ldquo;获取自&rdquo;。
 JDK中也有很多valueOf(String)，但另一方面也有UUID.fromString(String)。</p>
 <p>A: JSR-310在进行类型间的 &ldquo;松散 &ldquo;转换时使用 &ldquo;from&rdquo;，即有合理机会失败的转换。相反，当转换几乎肯定会成功时，则使用 &ldquo;of&rdquo;。
 例如：</p>
@@ -309,7 +305,23 @@ JDK中也有很多valueOf(String)，但另一方面也有UUID.fromString(String)
     </footer>
   </article>
         </div>
-        
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2020-12-22 18:20:59 \x2b0800 CST',
+        title: 'Java方法通用名最佳实践',
+        clientID: '8c6a8d0cc1c950b076a7',
+        clientSecret: 'f7eec8d92ac9ae49c662989d52e7f889016e20a8',
+        repo: 'trollshuo.github.io',
+        owner: 'trollshuo',
+        admin: ['trollshuo'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
 
   
 
