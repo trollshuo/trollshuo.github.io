@@ -1,5 +1,5 @@
 ---
-title: "Java方法通用名最佳实践"
+title: "Java通用方法命名最佳实践"
 date: 2020-12-22T18:20:59+08:00
 showDate: true
 draft: false
