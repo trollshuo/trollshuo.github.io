@@ -3,48 +3,55 @@
   
   <url>
     <loc>https://trollshuo.com/tags/BestPractice/</loc>
-    <lastmod>2020-12-22T18:20:59+08:00</lastmod>
+    <lastmod>2020-12-30T17:57:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://trollshuo.com/tags/Java/</loc>
-    <lastmod>2020-12-22T18:20:59+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://trollshuo.com/post/common_java_method_names/</loc>
-    <lastmod>2020-12-22T18:20:59+08:00</lastmod>
+    <lastmod>2020-12-30T17:57:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://trollshuo.com/post/</loc>
-    <lastmod>2020-12-22T18:20:59+08:00</lastmod>
+    <lastmod>2020-12-30T17:57:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://trollshuo.com/tags/</loc>
-    <lastmod>2020-12-22T18:20:59+08:00</lastmod>
+    <lastmod>2020-12-30T17:57:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://trollshuo.com/tags/Translate/</loc>
-    <lastmod>2020-12-22T18:20:59+08:00</lastmod>
+    <lastmod>2020-12-30T17:57:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://trollshuo.com/</loc>
+    <lastmod>2020-12-30T17:57:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://trollshuo.com/post/implementations_of_interfaces_prefixes/</loc>
+    <lastmod>2020-12-30T17:57:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://trollshuo.com/post/common_java_method_names/</loc>
     <lastmod>2020-12-22T18:20:59+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
