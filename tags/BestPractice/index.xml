@@ -2,21 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>BestPractice on Trollshuo&#39;s BLOG</title>
-    <link>https://trollshuo.github.io/tags/BestPractice/</link>
+    <link>https://trollshuo.com/tags/BestPractice/</link>
     <description>Recent content in BestPractice on Trollshuo&#39;s BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 22 Dec 2020 18:20:59 +0800</lastBuildDate>
-    
-	<atom:link href="https://trollshuo.github.io/tags/BestPractice/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 22 Dec 2020 18:20:59 +0800</lastBuildDate><atom:link href="https://trollshuo.com/tags/BestPractice/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java通用方法命名最佳实践</title>
-      <link>https://trollshuo.github.io/post/common_java_method_names/</link>
+      <link>https://trollshuo.com/post/common_java_method_names/</link>
       <pubDate>Tue, 22 Dec 2020 18:20:59 +0800</pubDate>
       
-      <guid>https://trollshuo.github.io/post/common_java_method_names/</guid>
+      <guid>https://trollshuo.com/post/common_java_method_names/</guid>
       <description>&lt;p&gt;在讨论了&lt;a href=&#34;http://blog.joda.org/2011/08/implementations-of-interfaces-prefixes.html&#34;&gt;一些&lt;/a&gt;&lt;a href=&#34;http://blog.joda.org/2011/08/more-java-prefixs-and-suffixes.html&#34;&gt;常见&lt;/a&gt;的类名前缀和后缀之后，本文想讨论一些方法命名的惯例。同样，这一切都与Java有关&amp;mdash;其他语言则完全不同。&lt;/p&gt;</description>
     </item>
     

@@ -1,64 +1,64 @@
-<?xml-stylesheet type="text/xsl" href="https://trollshuo.github.io/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="https://trollshuo.com/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://trollshuo.github.io/tags/BestPractice/</loc>
+    <loc>https://trollshuo.com/tags/BestPractice/</loc>
     <lastmod>2020-12-22T18:20:59+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://trollshuo.github.io/tags/Java/</loc>
+    <loc>https://trollshuo.com/tags/Java/</loc>
     <lastmod>2020-12-22T18:20:59+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://trollshuo.github.io/post/common_java_method_names/</loc>
+    <loc>https://trollshuo.com/post/common_java_method_names/</loc>
     <lastmod>2020-12-22T18:20:59+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://trollshuo.github.io/post/</loc>
+    <loc>https://trollshuo.com/post/</loc>
     <lastmod>2020-12-22T18:20:59+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://trollshuo.github.io/tags/</loc>
+    <loc>https://trollshuo.com/tags/</loc>
     <lastmod>2020-12-22T18:20:59+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://trollshuo.github.io/tags/Translate/</loc>
+    <loc>https://trollshuo.com/tags/Translate/</loc>
     <lastmod>2020-12-22T18:20:59+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://trollshuo.github.io/about/</loc>
+    <loc>https://trollshuo.com/</loc>
+    <lastmod>2020-12-22T18:20:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://trollshuo.com/about/</loc>
     <lastmod>2020-12-22T11:55:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://trollshuo.github.io/</loc>
-    <lastmod>2020-12-22T11:55:33+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://trollshuo.github.io/categories/</loc>
+    <loc>https://trollshuo.com/categories/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
