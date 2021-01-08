@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Trollshuo&#39;s BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 30 Dec 2020 17:57:13 +0800</lastBuildDate><atom:link href="https://trollshuo.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Jan 2021 20:19:48 +0800</lastBuildDate><atom:link href="https://trollshuo.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java static关键字完整指南</title>
+      <link>https://trollshuo.com/post/Java_static_keyword/</link>
+      <pubDate>Wed, 06 Jan 2021 20:19:48 +0800</pubDate>
+      
+      <guid>https://trollshuo.com/post/Java_static_keyword/</guid>
+      <description>&lt;p&gt;最近整理了一部分资料，尝试通过探索static关键字的历史作为开端，接着阐述并结合它的自身特点来对实际运用场景作一些总结。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>接口实现类的前缀与后缀最佳实践</title>
       <link>https://trollshuo.com/post/implementations_of_interfaces_prefixes/</link>
