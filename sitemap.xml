@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://trollshuo.com/tags/ES6/</loc>
+    <lastmod>2021-01-30T21:47:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://trollshuo.com/post/</loc>
+    <lastmod>2021-01-30T21:47:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://trollshuo.com/tags/</loc>
+    <lastmod>2021-01-30T21:47:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://trollshuo.com/tags/Translate/</loc>
+    <lastmod>2021-01-30T21:47:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://trollshuo.com/</loc>
+    <lastmod>2021-01-30T21:47:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://trollshuo.com/post/ES6_Succinctly/</loc>
+    <lastmod>2021-01-30T21:47:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://trollshuo.com/tags/Java/</loc>
     <lastmod>2021-01-06T20:19:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -23,35 +65,7 @@
   </url>
   
   <url>
-    <loc>https://trollshuo.com/post/</loc>
-    <lastmod>2021-01-06T20:19:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://trollshuo.com/tags/</loc>
-    <lastmod>2021-01-06T20:19:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://trollshuo.com/</loc>
-    <lastmod>2021-01-06T20:19:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://trollshuo.com/tags/BestPractice/</loc>
-    <lastmod>2020-12-30T17:57:13+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://trollshuo.com/tags/Translate/</loc>
     <lastmod>2020-12-30T17:57:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

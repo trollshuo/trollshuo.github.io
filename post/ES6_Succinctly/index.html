@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>大话ES6 - Trollshuo&#39;s BLOG</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Trollshuo" /><meta name="description" content="ES6、ES2015或者说Harmony给我们带来了很多有趣的特性，本文将对它所提供的这些新特性进行深入剖析。
+" /><meta name="keywords" content="Tech”, “Internet" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.1 with theme even" />
+
+
+<link rel="canonical" href="https://trollshuo.com/post/ES6_Succinctly/" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="manifest" href="../../manifest.json">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="../../sass/main.min.0f1d63121256541625aa278410d089eefde38344ca29e9244ebfb24f2cf0aa60.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="大话ES6" />
+<meta property="og:description" content="ES6、ES2015或者说Harmony给我们带来了很多有趣的特性，本文将对它所提供的这些新特性进行深入剖析。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://trollshuo.com/post/ES6_Succinctly/" />
+<meta property="article:published_time" content="2021-01-30T21:47:39+08:00" />
+<meta property="article:modified_time" content="2021-01-30T21:47:39+08:00" />
+<meta itemprop="name" content="大话ES6">
+<meta itemprop="description" content="ES6、ES2015或者说Harmony给我们带来了很多有趣的特性，本文将对它所提供的这些新特性进行深入剖析。">
+<meta itemprop="datePublished" content="2021-01-30T21:47:39+08:00" />
+<meta itemprop="dateModified" content="2021-01-30T21:47:39+08:00" />
+<meta itemprop="wordCount" content="4978">
+
+
+
+<meta itemprop="keywords" content="ES6,Translate," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="大话ES6"/>
+<meta name="twitter:description" content="ES6、ES2015或者说Harmony给我们带来了很多有趣的特性，本文将对它所提供的这些新特性进行深入剖析。"/>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-186172087-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-186172087-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="../../" class="logo">Trollshuo&#39;s BLOG</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="../../">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="../../post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="../../tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="../../about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="../../" class="logo">Trollshuo&#39;s BLOG</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="../../">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="../../post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="../../tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="../../about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">大话ES6</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-01-30 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#默认为严格模式">默认为严格模式</a></li>
+        <li><a href="#块作用域">块作用域</a></li>
+        <li><a href="#模板字符串">模板字符串</a></li>
+        <li><a href="#箭头函数">箭头函数</a></li>
+        <li><a href="#解构赋值">解构赋值</a></li>
+        <li><a href="#强大的forof">强大的<code>for...of</code></a></li>
+        <li><a href="#默认参数值">默认参数值</a></li>
+        <li><a href="#展开操作符">展开操作符<code>...</code></a></li>
+        <li><a href="#类">类</a></li>
+        <li><a href="#maps">Maps</a></li>
+        <li><a href="#weakmaps">WeakMaps</a></li>
+        <li><a href="#sets">Sets</a></li>
+        <li><a href="#weaksets">Weaksets</a></li>
+        <li><a href="#新的字符串函数">新的字符串函数</a></li>
+        <li><a href="#新的数组函数">新的数组函数</a></li>
+        <li><a href="#模块">模块</a></li>
+        <li><a href="#说在最后">说在最后</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>ES6、ES2015或者说Harmony给我们带来了很多有趣的特性，本文将对它所提供的这些新特性进行深入剖析。</p>
+<p>我赞同这种说法，ES6从2015年6月就出来了，从那以后已经写了很多关于新特性的文章，你最好不要再写一篇文章了&hellip;但这并不能阻止我写这篇文章。为什么这么说呢？因为，一是尚未完成的本文已经在我的磁盘里躺了相当长一段时间了，二是虽然我看了一些关于这个主题的文章，但自己写一篇文章有助于给这些知识点留下深刻印象。所以，这篇文章不仅是要写给你，同时也是要写给我自己看的。听起来似乎很公平？好吧，那就开始吧。</p>
+<h2 id="默认为严格模式">默认为严格模式</h2>
+<ul>
+<li>ES5 - 使用 <code>use strict</code>来手动启用严格模式；</li>
+<li>ES6 - 默认在模块中启用严格模式。</li>
+</ul>
+<p>ES5在Javascript中引入了严格模式，让我们的Javascript代码在一个“严格”的操作环境下执行。当你试图写一些脏代码时，会抛出更多的异常。
+举个例子，在严格模式下，你不能使用没有声明的变量。例如<code>foo = &quot;bar&quot;;</code>，其中<code>foo</code>没有声明会运行失败等等。当然，我不会详细介绍<code>strict</code>模式，而是向你推荐<a href="http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/">这篇关于这个主题的精彩文章</a>。</p>
+<p>ES6在它的模块中默认启用了<code>strict</code>模式，也就是说，你不再需要显式地写<code>use strict</code>来启用它了。</p>
+<h2 id="块作用域">块作用域</h2>
+<ul>
+<li>ES5 - 使用<code>var</code>声明变量，并具有函数的作用域；</li>
+<li>ES6 - 使用<code>let/const</code>声明块作用域变量。</li>
+</ul>
+<p>在ES5中，我们只能通过<code>var</code>来声明变量，这些变量具有函数的作用域，而另一种使用方式则是不添加<code>var</code>，这将使它处于全局作用域。</p>
+<p>现在我们又多了两种构造方式，即<code>let</code>和<code>const</code>，我们可以用它们来声明具有块级作用域的变量，即在大括号<code>{}</code>内。<code>let</code>和<code>const</code>的唯一区别是<code>const</code>的值一旦初始化就不能改变，而且必须在声明时初始化<code>const</code>变量。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 例子：
+// `let` 和 `const` 声明的变量将不能在`if`块之外被访问
+function scopeExample(){
+    if(true){
+        // `action` 和 `act` 只能在`if`块内被访问
+        let action =&#34;Some action&#34;;
+        const act = &#34;Some act&#34;;
+        
+        console.log(&#34;Doing: &#34; + action);
+        console.log(&#34;Now doing: &#34; + act);
+    }
+    console.log(act); // 未捕获的引用错误：&#34;act&#34;未定义。
+    console.log(action); // 未捕获的引用错误：&#34;action&#34;未定义
+}
+// 例子：
+// `const`定义的变量一旦被赋值，就不能改变
+function constExample(){
+    const action = &#34;something&#34;;
+    action = &#34;Updated action&#34;; //未捕获的类型错误：给常量变量赋值
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>因此，我们不再需要使用<a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression">IIFEs</a>这种奇怪的语法了， 取而代之的是使用一个块<code>{}</code>，使用<code>let</code>和<code>const</code>定义的变量。</p>
+<h2 id="模板字符串">模板字符串</h2>
+<p>以前，当你有一个变量，并想把它的值拼接到一个字符串中时，你必须使用连词操作符来实现，即：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">var name = &#39;John&#39;;
+console.log(&#39;Hello &#39; + name)；
+</code></pre></td></tr></table>
+</div>
+</div><p>在ES6中，我们可以使用模板字符串，即可以这样做：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">var name = &#39;John&#39;;
+console.log(`Hello ${name}`)；
+</code></pre></td></tr></table>
+</div>
+</div><p>需要注意的点是；对于模板字符串，你必须使用反引号``，而且模板字符串中使用的变量必须在使用模板字符串之前声明。</p>
+<h2 id="箭头函数">箭头函数</h2>
+<p>箭头函数是匿名函数的一种简略语法，其中没有function关键字，并有隐含的<code>return</code>语句。有点绕哈？请看例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">// ES5 例子
+var sayHello = function(name){
+    return &#39;Hello &#39; + name + &#39;!&#39;;
+};
+
+// ES6 例子
+// 箭头函数（一行表示）
+var sayHello = name =&gt; `Hello ${name}!`;
+sayHello(&#39;World&#39;); // Hello World
+
+// 在涉及多条语句的情况下，使用块{}
+var sayHello = name =&gt; {
+    // 设置name的默认值
+    name = name || &#39;World&#39;;
+    return `Hello ${name}!`;
+};
+
+sayHello(); // Hello World!
+sayHello(&#39;Jim&#39;); // Hello Jim!
+
+// 不含参数
+var sayHello = () =&gt; {
+    return &#39;Hello World!&#39;;
+};
+sayHello(); // Hello World!
+
+// 含有多个参数
+var greet = (greeting, name) =&gt; `${greeting} ${name}!`;
+// 或者使用块{}
+var greet = (greeting, name) =&gt; {
+    return `${greeting} ${name}!`;
+};
+
+greet(&#39;Hello&#39;, &#39;World&#39;); // Hello World
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="解构赋值">解构赋值</h2>
+<p>如果你写过PHP，你可能知道一种叫做<code>list</code>的数据结构，现在在Javascript中也可以实现类似的功能。请看例子：</p>
+<p>应用于解构数组：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">var parts = &#39;2010-11-11&#39;.split(&#39;-&#39;),
+    year = parts[0],
+    month = parts[1],
+    day = parts[2];
+
+console.log()
+</code></pre></td></tr></table>
+</div>
+</div><p>在ES6中一行表示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">var [year, month, day] = &#39;2020-10-11.split(&#39;-&#39;);
+console.log(year); // 2010
+console.log(month); // 10
+console.log(day); // 11
+</code></pre></td></tr></table>
+</div>
+</div><p>也可以忽略不感兴趣的值：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 只取month和day的值
+var [, month, day] = &#39;2010-10-11&#39;.split(&#39;-&#39;);
+console.log(month); // 10
+console.log(day); // 11
+
+// 只取year和day的值
+var [year, , day] = &#39;2010-10-11&#39;.split(&#39;-&#39;);
+console.log(year); // 2010
+console.log(day); // 11
+</code></pre></td></tr></table>
+</div>
+</div><p>为了防止从数组中取出一个值为undefined的对象，可以在表达式左边的数组中为任意对象预设默认值。例如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 假设日期是可选的，如果没有找到，那么我们使用`1`代替
+var [year, month, date=1] = &#39;2010-10&#39;.split(&#39;-&#39;);
+console.log(year); // 2010
+console.log(month); // 10
+console.log(date); // 1
+
+var [year, month, date=1] = &#39;2010-10-11&#39;.split(&#39;-&#39;);
+console.log(year); // 2010
+console.log(month); // 10
+console.log(date); // 11
+</code></pre></td></tr></table>
+</div>
+</div><p>应用于解构对象：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">var person = {name: &#39;John Doe&#39;, age: 23, gender: &#39;male&#39;};
+var {name, age, gender} = person;
+console.log(name); // John Doe
+console.log(age); // 23
+console.log(gender); // male
+</code></pre></td></tr></table>
+</div>
+</div><p>从上面的例子中，你一定注意到了我在<code>var {name, age, gender}</code>中为属性使用了相同的变量名，即<code>name</code>, <code>age</code>和<code>gender</code>。但是，如果我想把<code>person.name</code>存储在<code>tag</code>中，把<code>person.gender</code>存储在<code>sex</code>中呢？那么在这种情况下，自然而然会使用到别名：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">var person = {name : &#39;John Doe&#39;, age: 23, gender: &#39;male&#39;};
+var {name:tag, age, gender:sex} = person;
+console.log(tag); // John Doe
+console.log(age); // 23
+console.log(sex); // male
+</code></pre></td></tr></table>
+</div>
+</div><p>之前提到，对象也可以有默认值。例如，如果你想获得默认性别为<code>male</code>，即如果性别不存在，就使用<code>male</code>。可以通过以下方式实现：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">var person = {name: &#39;John Doe&#39;, age: 23};
+var {name, age, gender=&#39;male&#39;} = person;
+console.log(name); // John Doe
+console.log(age); // 23
+console.log(gender); // male
+
+// 别名和默认值可以同时使用
+var person = {name: &#39;John Doe&#39;, age: 23};
+var {name, age, gender:sex = &#39;male&#39;} = person;
+console.log(name); // John Doe
+console.log(age); // 23
+console.log(sex); // male
+</code></pre></td></tr></table>
+</div>
+</div><p>这还有一些特殊的例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 从函数调用中返回对象/多个值
+function getLocation(){
+    return {
+    latitude: 23.4125,
+    longitude: 45.128
+    };
+}
+
+var {latitude:lat, longitude:long} = getLocation();
+console.log(lat); // 23.4125
+console.log(long); // 45.128
+</code></pre></td></tr></table>
+</div>
+</div><p>查看<a href="https://gist.github.com/mikaelbr/9900818">这个要点有很多例子</a>。</p>
+<h2 id="强大的forof">强大的<code>for...of</code></h2>
+<p>以前迭代数组，可能会使用<code>for</code>或<code>forEach</code>。<code>for</code>可以跳出循环，但不够简洁，而<code>forEach</code>不允许你跳出循环，但足够简洁。现在<code>for...of</code>既满足简洁又支持跳出循环。下面看看如何使用它来迭代数组：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">var numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90];
+for(let number of numbers) {
+    console.log(number);
+}
+
+// 跳出循环
+var numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90];
+for(let number of numbers){
+    if (number === 50) {
+        break;
+    }
+    console.log(number);
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>举一个使用解构赋值和<code>for...of</code>的例子</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">var guests = [{name: &#39;John Doe&#39;, title: &#39;Mr&#39;}, {name: &#39;Jane                 Doe&#39;, title: &#39;Ms&#39;}];
+for(let {name} of guests) {
+    console.log(&#39;Hello &#39; + name + &#39;!&#39;);
+}
+
+// Hello John Doe!
+// Hello Jane Doe!
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="默认参数值">默认参数值</h2>
+<p>在ES6中，我们可以设置默认的参数值。例如之前得这样子实现：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">function greet(greet, name){
+    greet = greet || &#39;Hi&#39;;
+    name = name || &#39;John Doe&#39;;
+    
+    console.log(greet + &#39; &#39; + name); 
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>现在，我们有更简单的方式：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">function greet(greet=&#39;Hi&#39;, name=&#39;John Doe&#39;){
+    console.log(greet + &#39; &#39; + name);
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>另外，与第一个例子不同的是，在第一个例子中，默认值会被赋值给任何为false的值，而后一个例子则会给某些未定义参数赋值。此外，默认值也适用于对象参数。</p>
+<h2 id="展开操作符">展开操作符<code>...</code></h2>
+<p>以前当你需要一个未知数量的参数时，往往会使用<code>arguments</code>这样的特殊的变量。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">function populateBucket(){
+    var bucket = [];
+    for(var itemCounter = 0; itemCounter &lt; arguments.length; itemCounter++){
+        bucket.push(arguments[itemCounter]);
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>你可能已经注意到，这已经开始变得混乱了。在ES6中，您可以使用展开操作符。即：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">function populateBucket(...items){
+    var bucket = [];
+    for(item of items){
+        bucket.push(item);
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>展开操作符的另一用法是合并数组：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">var a = [1, 2, 3],
+    b = [4, 5, 6],
+    merged = [];
+    
+// 以前合并数组的方法
+merged = a.concat(b);
+
+// 现在更简洁：
+merged = [...a, ...b];
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="类">类</h2>
+<p>还记得我们以前是如何使用构造函数来创建类的吗？ES6引入了一些语法糖来让它变得更加愉快。现在创建类已经非常方便了：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">class Person{
+    // 当初始化person实例的时候会被调用
+    constructor(name){
+        this.name = name;
+        console.log(&#39;A person named &#34;&#39; + name + &#39;&#34; is born&#39;);
+    }
+    
+    // 不再需要 function 关键字
+    sayHello(){
+        console.log(this.name + &#39; says hello&#39;};
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>你也可以继承类而不用接触<code>prototype</code>了：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">class Employee extends Person{
+    constructor(name){
+        super(name);
+        console.log(this.name + &#39; has been employed&#39;);
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="maps">Maps</h2>
+<p>引入了一种新的数据结构，称为map，它使用键值对这样的方式存储数据。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">var map = new Map();
+map.set(&#39;spec&#39;, &#39;2015&#39;);
+map.set(&#39;year&#39;, &#39;2015&#39;);
+
+// 使用`.get()`来查询键值对
+console.log(map.get(&#39;spec&#39;)); // 2015
+</code></pre></td></tr></table>
+</div>
+</div><p>当然，你也可以迭代maps：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">for(var [key, value] of map) {
+    console.log(key + &#39;: &#39; + value);
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>此外，还有一些辅助函数来操作maps。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">map.entries(); // 返回 map 中所有的键值对
+map.keys(); // 返回 map 中所有的键
+map.values(); // 获取存储在 map 中的值
+map.has(keyName); // 检查 map 中是否有指定的键
+map.delete(keyName); // 替换对应键的值
+map.size; // 返回 map 的大小
+map.clear(); // 清除所有的集合
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="weakmaps">WeakMaps</h2>
+<p>和<code>Map</code>一样，<code>WeakMap</code>是一个键/值对的集合，其中键必须是对象，或者换句话说，它们必须是引用类型，而不是值类型，如numbers、symbols或strings等，值可以是任意值。如果<code>WeakMap</code>中没有存储键的其他引用，它们会触发垃圾回收。这意味着它们很适合在对象还在使用时为其保留元数据。让我们来看看我从<a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/WeakMap">mozilla JS引用中偷来的例子</a>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">var wm1 = new WeakMap(),
+    wm2 = new WeakMap(),
+    wm3 = new WeakMap();
+var o1 = {},
+    o2 = function(){},
+    o3 = window;
+
+wm1.set(o1, 37);
+wm1.set(o2, &#34;azerty&#34;);
+wm2.set(o1, o2); // 值可以是任何东西， 包括对象或者函数
+wm2.set(o3, undefined);
+wm2.set(wm1, wm2); // 键和值可以是任何对象，甚至是WeakMaps！
+
+wm1.get(o2); // “azerty”
+wm2.get(o2); // undefined, 因为wm2中的o2没有值
+wm2.get(o3); // undefined， 因为这是设定的值
+
+wm1.has(o2); // true
+wm2.has(o2); // false
+wm2.has(o3); // true (即使该值本身是 &#34;undefined&#34;。)
+
+wm3.set(o1, 37);
+wm3.get(o1); // 37
+
+wm1.has(o1); // true
+wm1.delete(o1);
+wm1.has(o1); // false
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="sets">Sets</h2>
+<p>Sets是存储唯一值的集合。任何重复的值都将被忽略。这些值也可以是原始数据或对象引用。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">let set = new Set();
+set.add(1);
+set.add(&#39;1&#39;);
+set.add({key: &#39;value&#39;});
+console.log(set); // Set {1, &#39;1&#39;, Object {key: &#39;value&#39;}}
+
+// 删除值
+set.delete(2);
+
+// 检查大小
+console.log(set.size);
+</code></pre></td></tr></table>
+</div>
+</div><p>像map一样，set允许通过向其构造函数传递一个数组来创建集合:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">let set = new Set([1, &#39;1&#39;, {key: &#39;value&#39; }]);
+console.log(set); // Set {1, &#39;1&#39;, Object {key: &#39;value&#39;}}
+</code></pre></td></tr></table>
+</div>
+</div><p>为了迭代sets，我们有两个选项&ndash;内置的forEach函数或for..of结构。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">// forEach
+let set = new Set([1, &#39;1&#39;, {key: &#39;value&#39; }]);
+set.forEach(function (value) {
+    console.log(value);
+    // 1
+    // &#39;1&#39;
+    // Object {key: &#39;value&#39;}
+});
+
+// for...of
+let set = new Set([1, &#39;1&#39;, {key: &#39;value&#39; }]);
+for(let value of set){
+    console.log(value);
+    // 1
+    // &#39;1&#39;
+    // Object {key: &#39;value&#39;}
+};
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="weaksets">Weaksets</h2>
+<p>与<code>Set</code>可以是任何东西的集合不同，<code>WeakSet</code>只是对象的集合，而不是任何类型的任意值的集合。<code>WeakSet</code>是弱引用的：对集合中的对象的引用是弱引用的。如果<code>WeakSet</code>中存储的对象没有其他引用，它们就触发垃圾回收。另外，<code>WeakSets</code>不是可枚举的，所以不能使用枚举方法，比如<code>.forEach</code>，<code>.clear</code>等。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">var ws = new weakSet();
+var obj = {};
+var foo = {};
+
+ws.add(window);
+ws.add(obj);
+
+ws.has(window); // true
+ws.has(foo); // false, set中没有foo变量
+
+ws.delete(window); // 从set中删除window
+ws.has(window); // false, window 已经被删除了
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="新的字符串函数">新的字符串函数</h2>
+<p>引入了一些新的字符串方法，让我们的生活变得更轻松。还记得我们以前是如何使用<code>indexOf</code>来检查一个字符串是否存在于另一个字符串中，或者检查一个字符串是否以一个特定的字符开始/结束的吗？</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">var message = &#39;Hello World&#39;;
+message.startsWith(&#39;H&#39;); // 而不是 message.indexOf(&#39;H&#39;) === 0
+message.endsWith(&#39;d&#39;); // 而不是其他什么 ¯\_(ツ)_/¯
+
+message.includes(&#39;or&#39;); //而不是 message.indexOf(&#39;or&#39;) &gt;= 0
+</code></pre></td></tr></table>
+</div>
+</div><p>此外，还有一个用于重复字符<code>n</code>次的辅助函数。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 之前得要这样做
+new Array(3+1) * &#39;*&#39;
+
+// 现在很简单就能实现
+&#39;*&#39;.repeat(3); // 将会生成 ***
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="新的数组函数">新的数组函数</h2>
+<p>引入了一些新的数组函数。<code>Array.from</code>可以让你从类似数组的对象中创建数组。比如说：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 类似数组的对象（参数）转换成数组
+function fooBar(){
+    return Array.from(arguments);
+}
+
+fooBar(1, 2, 3, 4, 5); // [1, 2, 3, 4, 5];
+
+// 任何可迭代的对象
+// Set
+var s = new Set([&#39;foo&#39;, window]);
+Array.from(s);
+// [&#39;foo&#39;, window]
+
+// Map
+var m = new Map([[1, 2], [2, 4], [4, 8]]);
+Array.from(m);
+// [[1, 2], [2, 4], [4, 8]]
+
+// 使用一个箭头函数作为map函数来操作元素
+Array.from([1, 2, 3], x =&gt; x + x);
+// [2, 4, 6]
+</code></pre></td></tr></table>
+</div>
+</div><p><code>Array.fill</code>允许你用传递的元素替换一个数组中的所有元素。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">var randomNumbers = [1, 5, 7, 77, 12, 3];
+randomNumbers.fill(&#39;*&#39;); // [&#39;*&#39;, &#39;*&#39;, &#39;*&#39;,&#39;*&#39;, &#39;*&#39;, &#39;*&#39;]
+</code></pre></td></tr></table>
+</div>
+</div><p><code>Array.find</code>接收一个回调函数，并返回满足回调函数中条件的第一个元素。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">var users = [{name: &#39;John Doe&#39;, age: 23}, {name: &#39;Jane Doe&#39;, age: 23}, {name: &#39;Kane Doe&#39;, age: 30}];
+users.find(user =&gt; user.age &gt; 25); // {name: &#39;Kane Doe&#39;, age:30}
+</code></pre></td></tr></table>
+</div>
+</div><p>还有一个类似的函数是Array.findIndex，它的工作原理是一样的，但返回匹配元素的索引。</p>
+<h2 id="模块">模块</h2>
+<p>ES缺少原生模块支持已经有很长一段时间了。人们想出了AMD、CommonJS或模块化模式等类似的办法来解决。而ES6现在终于有了原生模块的支持。让我们先简单了解一下。</p>
+<p>默认情况下，在文件中声明的任何东西都不会在文件外部可见，除非你使用<code>export</code>。</p>
+<p>以下面的<code>User</code>模块为例</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">// user.js
+
+var localVariable = 123; // 在文件外部不可见
+
+export default function User(age){
+    this.age = age;
+}; // 可以被其他文件作为模块导入
+</code></pre></td></tr></table>
+</div>
+</div><p>现在我们希望使用User模块：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">// user-details.js
+import User from &#39;user&#39;;
+
+var user = new User(24);
+</code></pre></td></tr></table>
+</div>
+</div><p>还有很多的内容。更多详情请看<a href="https://ponyfoo.com/articles/es6-modules-in-depth">这篇文章</a>。</p>
+<h2 id="说在最后">说在最后</h2>
+<p>虽然ES6已经发布了，但在浏览器中对它的支持仍然悬而未决。但是，现在有<a href="https://github.com/addyosmani/es6-tools">大量的工具</a>可以帮助我们使用ES6。最流行的是<a href="https://babeljs.io/">BabelJS</a>，它既可以作为一个独立的工具运行，也可以和你的构建系统一起使用。他们有针对Grunt、Gulp等的<a href="http://babeljs.io/docs/setup/">插件</a>。</p>
+<p>好了，伙计们，差不多就到此为止了。还有一些值得注意的、让人心动的特性，这里没有提到 Generators、Promises、Proxy 和 Symbols 等等。但是，本文所涉及的东西已经足够让你入门了。不过，如果可以的话，我会强烈推荐<a href="https://ponyfoo.com/articles/tagged/es6-in-depth">这一系列的文章</a>和<a href="https://leanpub.com/understandinges6">这本书</a>。而<a href="http://wiki.ecmascript.org/doku.php?id=harmony:specification_drafts">规范</a>也许是为超前者准备的。</p>
+<p>欢迎大家提出建议。</p>
+<blockquote>
+<p>本文翻译自 <a href="https://kamranahmed.info/blog/2016/04/04/es6-in-depth/">ES6 Succinctly</a></p>
+</blockquote>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Trollshuo</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-01-30
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="../../tags/ES6/">ES6</a>
+          <a href="../../tags/Translate/">Translate</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="../../post/Java_static_keyword/">
+            <span class="next-text nav-default">Java static关键字完整指南</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2021-01-30 21:47:39 \u002b0800 CST',
+        title: '大话ES6',
+        clientID: '8c6a8d0cc1c950b076a7',
+        clientSecret: 'f7eec8d92ac9ae49c662989d52e7f889016e20a8',
+        repo: 'trollshuo.github.io',
+        owner: 'trollshuo',
+        admin: ['trollshuo'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/trollshuo/" class="iconfont icon-github" title="github"></a>
+  <a href="https://trollshuo.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>Trollshuo</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="../../js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-186172087-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ES6 on Trollshuo&#39;s BLOG</title>
+    <link>https://trollshuo.com/tags/ES6/</link>
+    <description>Recent content in ES6 on Trollshuo&#39;s BLOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 30 Jan 2021 21:47:39 +0800</lastBuildDate><atom:link href="https://trollshuo.com/tags/ES6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>大话ES6</title>
+      <link>https://trollshuo.com/post/ES6_Succinctly/</link>
+      <pubDate>Sat, 30 Jan 2021 21:47:39 +0800</pubDate>
+      
+      <guid>https://trollshuo.com/post/ES6_Succinctly/</guid>
+      <description>&lt;p&gt;ES6、ES2015或者说Harmony给我们带来了很多有趣的特性，本文将对它所提供的这些新特性进行深入剖析。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
