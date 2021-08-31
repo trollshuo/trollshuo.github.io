@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.79.1 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://trollshuo.com/post/ES6_Succinctly/" />
@@ -36,26 +36,22 @@
 
 
 
-<link href="../../sass/main.min.0f1d63121256541625aa278410d089eefde38344ca29e9244ebfb24f2cf0aa60.css" rel="stylesheet">
+<link href="../../sass/main.min.0c49e3db1c78ff644ea8b059c58127d84d890e34007aeab628e3b6f1be3da061.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="大话ES6" />
 <meta property="og:description" content="ES6、ES2015或者说Harmony给我们带来了很多有趣的特性，本文将对它所提供的这些新特性进行深入剖析。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://trollshuo.com/post/ES6_Succinctly/" />
+<meta property="og:url" content="https://trollshuo.com/post/ES6_Succinctly/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-01-30T21:47:39+08:00" />
 <meta property="article:modified_time" content="2021-01-30T21:47:39+08:00" />
+
 <meta itemprop="name" content="大话ES6">
-<meta itemprop="description" content="ES6、ES2015或者说Harmony给我们带来了很多有趣的特性，本文将对它所提供的这些新特性进行深入剖析。">
-<meta itemprop="datePublished" content="2021-01-30T21:47:39+08:00" />
+<meta itemprop="description" content="ES6、ES2015或者说Harmony给我们带来了很多有趣的特性，本文将对它所提供的这些新特性进行深入剖析。"><meta itemprop="datePublished" content="2021-01-30T21:47:39+08:00" />
 <meta itemprop="dateModified" content="2021-01-30T21:47:39+08:00" />
-<meta itemprop="wordCount" content="4978">
-
-
-
-<meta itemprop="keywords" content="ES6,Translate," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="wordCount" content="5162">
+<meta itemprop="keywords" content="ES6,Translate," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="大话ES6"/>
 <meta name="twitter:description" content="ES6、ES2015或者说Harmony给我们带来了很多有趣的特性，本文将对它所提供的这些新特性进行深入剖析。"/>
 
@@ -71,7 +67,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -206,7 +201,7 @@ if (!doNotTrack) {
 <p>现在我们又多了两种构造方式，即<code>let</code>和<code>const</code>，我们可以用它们来声明具有块级作用域的变量，即在大括号<code>{}</code>内。<code>let</code>和<code>const</code>的唯一区别是<code>const</code>的值一旦初始化就不能改变，而且必须在声明时初始化<code>const</code>变量。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -228,49 +223,49 @@ if (!doNotTrack) {
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 例子：
-// `let` 和 `const` 声明的变量将不能在`if`块之外被访问
-function scopeExample(){
-    if(true){
-        // `action` 和 `act` 只能在`if`块内被访问
-        let action =&#34;Some action&#34;;
-        const act = &#34;Some act&#34;;
-        
-        console.log(&#34;Doing: &#34; + action);
-        console.log(&#34;Now doing: &#34; + act);
-    }
-    console.log(act); // 未捕获的引用错误：&#34;act&#34;未定义。
-    console.log(action); // 未捕获的引用错误：&#34;action&#34;未定义
-}
-// 例子：
-// `const`定义的变量一旦被赋值，就不能改变
-function constExample(){
-    const action = &#34;something&#34;;
-    action = &#34;Updated action&#34;; //未捕获的类型错误：给常量变量赋值
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="o">//</span><span class="w"> </span><span class="err">例子：</span><span class="w">
+</span><span class="w"></span><span class="o">//</span><span class="w"> </span><span class="o">`</span><span class="n">let</span><span class="o">`</span><span class="w"> </span><span class="err">和</span><span class="w"> </span><span class="o">`</span><span class="n">const</span><span class="o">`</span><span class="w"> </span><span class="err">声明的变量将不能在</span><span class="o">`</span><span class="k">if</span><span class="o">`</span><span class="err">块之外被访问</span><span class="w">
+</span><span class="w"></span><span class="n">function</span><span class="w"> </span><span class="nf">scopeExample</span><span class="p">()</span><span class="err">{</span><span class="w">
+</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="no">true</span><span class="p">)</span><span class="err">{</span><span class="w">
+</span><span class="w">        </span><span class="o">//</span><span class="w"> </span><span class="o">`</span><span class="n">action</span><span class="o">`</span><span class="w"> </span><span class="err">和</span><span class="w"> </span><span class="o">`</span><span class="n">act</span><span class="o">`</span><span class="w"> </span><span class="err">只能在</span><span class="o">`</span><span class="k">if</span><span class="o">`</span><span class="err">块内被访问</span><span class="w">
+</span><span class="w">        </span><span class="n">let</span><span class="w"> </span><span class="n">action</span><span class="w"> </span><span class="o">=</span><span class="s2">&#34;Some action&#34;</span><span class="p">;</span><span class="w">
+</span><span class="w">        </span><span class="n">const</span><span class="w"> </span><span class="n">act</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;Some act&#34;</span><span class="p">;</span><span class="w">
+</span><span class="w">        
+</span><span class="w">        </span><span class="n">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s2">&#34;Doing: &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">action</span><span class="p">);</span><span class="w">
+</span><span class="w">        </span><span class="n">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s2">&#34;Now doing: &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">act</span><span class="p">);</span><span class="w">
+</span><span class="w">    </span><span class="err">}</span><span class="w">
+</span><span class="w">    </span><span class="n">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="n">act</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="err">未捕获的引用错误：</span><span class="s2">&#34;act&#34;</span><span class="err">未定义。</span><span class="w">
+</span><span class="w">    </span><span class="n">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="n">action</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="err">未捕获的引用错误：</span><span class="s2">&#34;action&#34;</span><span class="err">未定义</span><span class="w">
+</span><span class="w"></span><span class="err">}</span><span class="w">
+</span><span class="w"></span><span class="o">//</span><span class="w"> </span><span class="err">例子：</span><span class="w">
+</span><span class="w"></span><span class="o">//</span><span class="w"> </span><span class="o">`</span><span class="n">const</span><span class="o">`</span><span class="err">定义的变量一旦被赋值，就不能改变</span><span class="w">
+</span><span class="w"></span><span class="n">function</span><span class="w"> </span><span class="nf">constExample</span><span class="p">()</span><span class="err">{</span><span class="w">
+</span><span class="w">    </span><span class="n">const</span><span class="w"> </span><span class="n">action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;something&#34;</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="n">action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;Updated action&#34;</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="err">未捕获的类型错误：给常量变量赋值</span><span class="w">
+</span><span class="w"></span><span class="err">}</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
 </div><p>因此，我们不再需要使用<a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression">IIFEs</a>这种奇怪的语法了， 取而代之的是使用一个块<code>{}</code>，使用<code>let</code>和<code>const</code>定义的变量。</p>
 <h2 id="模板字符串">模板字符串</h2>
 <p>以前，当你有一个变量，并想把它的值拼接到一个字符串中时，你必须使用连词操作符来实现，即：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">var name = &#39;John&#39;;
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">var name = &#39;John&#39;;
 console.log(&#39;Hello &#39; + name)；
 </code></pre></td></tr></table>
 </div>
 </div><p>在ES6中，我们可以使用模板字符串，即可以这样做：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">var name = &#39;John&#39;;
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">var name = &#39;John&#39;;
 console.log(`Hello ${name}`)；
 </code></pre></td></tr></table>
 </div>
@@ -279,7 +274,7 @@ console.log(`Hello ${name}`)；
 <p>箭头函数是匿名函数的一种简略语法，其中没有function关键字，并有隐含的<code>return</code>语句。有点绕哈？请看例子：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -315,7 +310,7 @@ console.log(`Hello ${name}`)；
 </span><span class="lnt">34
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// ES5 例子
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">// ES5 例子
 var sayHello = function(name){
     return &#39;Hello &#39; + name + &#39;!&#39;;
 };
@@ -356,7 +351,7 @@ greet(&#39;Hello&#39;, &#39;World&#39;); // Hello World
 <p>应用于解构数组：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -364,7 +359,7 @@ greet(&#39;Hello&#39;, &#39;World&#39;); // Hello World
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">var parts = &#39;2010-11-11&#39;.split(&#39;-&#39;),
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">var parts = &#39;2010-11-11&#39;.split(&#39;-&#39;),
     year = parts[0],
     month = parts[1],
     day = parts[2];
@@ -375,13 +370,13 @@ console.log()
 </div><p>在ES6中一行表示：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">var [year, month, day] = &#39;2020-10-11.split(&#39;-&#39;);
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">var [year, month, day] = &#39;2020-10-11.split(&#39;-&#39;);
 console.log(year); // 2010
 console.log(month); // 10
 console.log(day); // 11
@@ -390,7 +385,7 @@ console.log(day); // 11
 </div><p>也可以忽略不感兴趣的值：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -401,7 +396,7 @@ console.log(day); // 11
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 只取month和day的值
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">// 只取month和day的值
 var [, month, day] = &#39;2010-10-11&#39;.split(&#39;-&#39;);
 console.log(month); // 10
 console.log(day); // 11
@@ -415,7 +410,7 @@ console.log(day); // 11
 </div><p>为了防止从数组中取出一个值为undefined的对象，可以在表达式左边的数组中为任意对象预设默认值。例如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -427,7 +422,7 @@ console.log(day); // 11
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 假设日期是可选的，如果没有找到，那么我们使用`1`代替
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">// 假设日期是可选的，如果没有找到，那么我们使用`1`代替
 var [year, month, date=1] = &#39;2010-10&#39;.split(&#39;-&#39;);
 console.log(year); // 2010
 console.log(month); // 10
@@ -442,14 +437,14 @@ console.log(date); // 11
 </div><p>应用于解构对象：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">var person = {name: &#39;John Doe&#39;, age: 23, gender: &#39;male&#39;};
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">var person = {name: &#39;John Doe&#39;, age: 23, gender: &#39;male&#39;};
 var {name, age, gender} = person;
 console.log(name); // John Doe
 console.log(age); // 23
@@ -459,14 +454,14 @@ console.log(gender); // male
 </div><p>从上面的例子中，你一定注意到了我在<code>var {name, age, gender}</code>中为属性使用了相同的变量名，即<code>name</code>, <code>age</code>和<code>gender</code>。但是，如果我想把<code>person.name</code>存储在<code>tag</code>中，把<code>person.gender</code>存储在<code>sex</code>中呢？那么在这种情况下，自然而然会使用到别名：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">var person = {name : &#39;John Doe&#39;, age: 23, gender: &#39;male&#39;};
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">var person = {name : &#39;John Doe&#39;, age: 23, gender: &#39;male&#39;};
 var {name:tag, age, gender:sex} = person;
 console.log(tag); // John Doe
 console.log(age); // 23
@@ -476,7 +471,7 @@ console.log(sex); // male
 </div><p>之前提到，对象也可以有默认值。例如，如果你想获得默认性别为<code>male</code>，即如果性别不存在，就使用<code>male</code>。可以通过以下方式实现：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -490,7 +485,7 @@ console.log(sex); // male
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">var person = {name: &#39;John Doe&#39;, age: 23};
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">var person = {name: &#39;John Doe&#39;, age: 23};
 var {name, age, gender=&#39;male&#39;} = person;
 console.log(name); // John Doe
 console.log(age); // 23
@@ -507,7 +502,7 @@ console.log(sex); // male
 </div><p>这还有一些特殊的例子：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -520,7 +515,7 @@ console.log(sex); // male
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 从函数调用中返回对象/多个值
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">// 从函数调用中返回对象/多个值
 function getLocation(){
     return {
     latitude: 23.4125,
@@ -538,7 +533,7 @@ console.log(long); // 45.128
 <p>以前迭代数组，可能会使用<code>for</code>或<code>forEach</code>。<code>for</code>可以跳出循环，但不够简洁，而<code>forEach</code>不允许你跳出循环，但足够简洁。现在<code>for...of</code>既满足简洁又支持跳出循环。下面看看如何使用它来迭代数组：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -553,7 +548,7 @@ console.log(long); // 45.128
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">var numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90];
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">var numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90];
 for(let number of numbers) {
     console.log(number);
 }
@@ -571,7 +566,7 @@ for(let number of numbers){
 </div><p>举一个使用解构赋值和<code>for...of</code>的例子</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -580,7 +575,7 @@ for(let number of numbers){
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">var guests = [{name: &#39;John Doe&#39;, title: &#39;Mr&#39;}, {name: &#39;Jane                 Doe&#39;, title: &#39;Ms&#39;}];
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">var guests = [{name: &#39;John Doe&#39;, title: &#39;Mr&#39;}, {name: &#39;Jane                 Doe&#39;, title: &#39;Ms&#39;}];
 for(let {name} of guests) {
     console.log(&#39;Hello &#39; + name + &#39;!&#39;);
 }
@@ -593,7 +588,7 @@ for(let {name} of guests) {
 <p>在ES6中，我们可以设置默认的参数值。例如之前得这样子实现：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -601,7 +596,7 @@ for(let {name} of guests) {
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">function greet(greet, name){
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">function greet(greet, name){
     greet = greet || &#39;Hi&#39;;
     name = name || &#39;John Doe&#39;;
     
@@ -612,12 +607,12 @@ for(let {name} of guests) {
 </div><p>现在，我们有更简单的方式：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">function greet(greet=&#39;Hi&#39;, name=&#39;John Doe&#39;){
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">function greet(greet=&#39;Hi&#39;, name=&#39;John Doe&#39;){
     console.log(greet + &#39; &#39; + name);
 }
 </code></pre></td></tr></table>
@@ -627,7 +622,7 @@ for(let {name} of guests) {
 <p>以前当你需要一个未知数量的参数时，往往会使用<code>arguments</code>这样的特殊的变量。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -635,7 +630,7 @@ for(let {name} of guests) {
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">function populateBucket(){
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">function populateBucket(){
     var bucket = [];
     for(var itemCounter = 0; itemCounter &lt; arguments.length; itemCounter++){
         bucket.push(arguments[itemCounter]);
@@ -646,7 +641,7 @@ for(let {name} of guests) {
 </div><p>你可能已经注意到，这已经开始变得混乱了。在ES6中，您可以使用展开操作符。即：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -654,7 +649,7 @@ for(let {name} of guests) {
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">function populateBucket(...items){
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">function populateBucket(...items){
     var bucket = [];
     for(item of items){
         bucket.push(item);
@@ -665,7 +660,7 @@ for(let {name} of guests) {
 </div><p>展开操作符的另一用法是合并数组：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -676,7 +671,7 @@ for(let {name} of guests) {
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">var a = [1, 2, 3],
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">var a = [1, 2, 3],
     b = [4, 5, 6],
     merged = [];
     
@@ -691,7 +686,7 @@ merged = [...a, ...b];
 <p>还记得我们以前是如何使用构造函数来创建类的吗？ES6引入了一些语法糖来让它变得更加愉快。现在创建类已经非常方便了：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -704,7 +699,7 @@ merged = [...a, ...b];
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">class Person{
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">class Person{
     // 当初始化person实例的时候会被调用
     constructor(name){
         this.name = name;
@@ -720,7 +715,7 @@ merged = [...a, ...b];
 </div><p>你也可以继承类而不用接触<code>prototype</code>了：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -728,7 +723,7 @@ merged = [...a, ...b];
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">class Employee extends Person{
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">class Employee extends Person{
     constructor(name){
         super(name);
         console.log(this.name + &#39; has been employed&#39;);
@@ -740,7 +735,7 @@ merged = [...a, ...b];
 <p>引入了一种新的数据结构，称为map，它使用键值对这样的方式存储数据。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -748,7 +743,7 @@ merged = [...a, ...b];
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">var map = new Map();
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">var map = new Map();
 map.set(&#39;spec&#39;, &#39;2015&#39;);
 map.set(&#39;year&#39;, &#39;2015&#39;);
 
@@ -759,12 +754,12 @@ console.log(map.get(&#39;spec&#39;)); // 2015
 </div><p>当然，你也可以迭代maps：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">for(var [key, value] of map) {
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">for(var [key, value] of map) {
     console.log(key + &#39;: &#39; + value);
 }
 </code></pre></td></tr></table>
@@ -772,7 +767,7 @@ console.log(map.get(&#39;spec&#39;)); // 2015
 </div><p>此外，还有一些辅助函数来操作maps。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -781,7 +776,7 @@ console.log(map.get(&#39;spec&#39;)); // 2015
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">map.entries(); // 返回 map 中所有的键值对
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">map.entries(); // 返回 map 中所有的键值对
 map.keys(); // 返回 map 中所有的键
 map.values(); // 获取存储在 map 中的值
 map.has(keyName); // 检查 map 中是否有指定的键
@@ -794,7 +789,7 @@ map.clear(); // 清除所有的集合
 <p>和<code>Map</code>一样，<code>WeakMap</code>是一个键/值对的集合，其中键必须是对象，或者换句话说，它们必须是引用类型，而不是值类型，如numbers、symbols或strings等，值可以是任意值。如果<code>WeakMap</code>中没有存储键的其他引用，它们会触发垃圾回收。这意味着它们很适合在对象还在使用时为其保留元数据。让我们来看看我从<a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/WeakMap">mozilla JS引用中偷来的例子</a>：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -823,7 +818,7 @@ map.clear(); // 清除所有的集合
 </span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">var wm1 = new WeakMap(),
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">var wm1 = new WeakMap(),
     wm2 = new WeakMap(),
     wm3 = new WeakMap();
 var o1 = {},
@@ -856,7 +851,7 @@ wm1.has(o1); // false
 <p>Sets是存储唯一值的集合。任何重复的值都将被忽略。这些值也可以是原始数据或对象引用。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -869,7 +864,7 @@ wm1.has(o1); // false
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">let set = new Set();
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">let set = new Set();
 set.add(1);
 set.add(&#39;1&#39;);
 set.add({key: &#39;value&#39;});
@@ -885,18 +880,18 @@ console.log(set.size);
 </div><p>像map一样，set允许通过向其构造函数传递一个数组来创建集合:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">let set = new Set([1, &#39;1&#39;, {key: &#39;value&#39; }]);
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">let set = new Set([1, &#39;1&#39;, {key: &#39;value&#39; }]);
 console.log(set); // Set {1, &#39;1&#39;, Object {key: &#39;value&#39;}}
 </code></pre></td></tr></table>
 </div>
 </div><p>为了迭代sets，我们有两个选项&ndash;内置的forEach函数或for..of结构。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -915,7 +910,7 @@ console.log(set); // Set {1, &#39;1&#39;, Object {key: &#39;value&#39;}}
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// forEach
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">// forEach
 let set = new Set([1, &#39;1&#39;, {key: &#39;value&#39; }]);
 set.forEach(function (value) {
     console.log(value);
@@ -938,7 +933,7 @@ for(let value of set){
 <p>与<code>Set</code>可以是任何东西的集合不同，<code>WeakSet</code>只是对象的集合，而不是任何类型的任意值的集合。<code>WeakSet</code>是弱引用的：对集合中的对象的引用是弱引用的。如果<code>WeakSet</code>中存储的对象没有其他引用，它们就触发垃圾回收。另外，<code>WeakSets</code>不是可枚举的，所以不能使用枚举方法，比如<code>.forEach</code>，<code>.clear</code>等。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -952,7 +947,7 @@ for(let value of set){
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">var ws = new weakSet();
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">var ws = new weakSet();
 var obj = {};
 var foo = {};
 
@@ -970,14 +965,14 @@ ws.has(window); // false, window 已经被删除了
 <p>引入了一些新的字符串方法，让我们的生活变得更轻松。还记得我们以前是如何使用<code>indexOf</code>来检查一个字符串是否存在于另一个字符串中，或者检查一个字符串是否以一个特定的字符开始/结束的吗？</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">var message = &#39;Hello World&#39;;
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">var message = &#39;Hello World&#39;;
 message.startsWith(&#39;H&#39;); // 而不是 message.indexOf(&#39;H&#39;) === 0
 message.endsWith(&#39;d&#39;); // 而不是其他什么 ¯\_(ツ)_/¯
 
@@ -987,14 +982,14 @@ message.includes(&#39;or&#39;); //而不是 message.indexOf(&#39;or&#39;) &gt;= 
 </div><p>此外，还有一个用于重复字符<code>n</code>次的辅助函数。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 之前得要这样做
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">// 之前得要这样做
 new Array(3+1) * &#39;*&#39;
 
 // 现在很简单就能实现
@@ -1005,7 +1000,7 @@ new Array(3+1) * &#39;*&#39;
 <p>引入了一些新的数组函数。<code>Array.from</code>可以让你从类似数组的对象中创建数组。比如说：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1028,7 +1023,7 @@ new Array(3+1) * &#39;*&#39;
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 类似数组的对象（参数）转换成数组
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">// 类似数组的对象（参数）转换成数组
 function fooBar(){
     return Array.from(arguments);
 }
@@ -1054,22 +1049,22 @@ Array.from([1, 2, 3], x =&gt; x + x);
 </div><p><code>Array.fill</code>允许你用传递的元素替换一个数组中的所有元素。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">var randomNumbers = [1, 5, 7, 77, 12, 3];
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">var randomNumbers = [1, 5, 7, 77, 12, 3];
 randomNumbers.fill(&#39;*&#39;); // [&#39;*&#39;, &#39;*&#39;, &#39;*&#39;,&#39;*&#39;, &#39;*&#39;, &#39;*&#39;]
 </code></pre></td></tr></table>
 </div>
 </div><p><code>Array.find</code>接收一个回调函数，并返回满足回调函数中条件的第一个元素。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">var users = [{name: &#39;John Doe&#39;, age: 23}, {name: &#39;Jane Doe&#39;, age: 23}, {name: &#39;Kane Doe&#39;, age: 30}];
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">var users = [{name: &#39;John Doe&#39;, age: 23}, {name: &#39;Jane Doe&#39;, age: 23}, {name: &#39;Kane Doe&#39;, age: 30}];
 users.find(user =&gt; user.age &gt; 25); // {name: &#39;Kane Doe&#39;, age:30}
 </code></pre></td></tr></table>
 </div>
@@ -1080,7 +1075,7 @@ users.find(user =&gt; user.age &gt; 25); // {name: &#39;Kane Doe&#39;, age:30}
 <p>以下面的<code>User</code>模块为例</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1089,7 +1084,7 @@ users.find(user =&gt; user.age &gt; 25); // {name: &#39;Kane Doe&#39;, age:30}
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// user.js
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">// user.js
 
 var localVariable = 123; // 在文件外部不可见
 
@@ -1101,13 +1096,13 @@ export default function User(age){
 </div><p>现在我们希望使用User模块：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// user-details.js
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">// user-details.js
 import User from &#39;user&#39;;
 
 var user = new User(24);
@@ -1144,7 +1139,11 @@ var user = new User(24);
           <a href="../../tags/Translate/">Translate</a>
           </div>
       <nav class="post-nav">
-        
+        <a class="prev" href="../../post/microservice_architecture_best_practices/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">微服务架构最佳实践</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
         <a class="next" href="../../post/Java_static_keyword/">
             <span class="next-text nav-default">Java static关键字完整指南</span>
             <span class="next-text nav-mobile">Next</span>
@@ -1217,7 +1216,7 @@ var user = new User(24);
 
 
 
-<script type="text/javascript" src="../../js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="../../js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 <script type="application/javascript">

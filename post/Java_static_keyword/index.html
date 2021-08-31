@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.79.1 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://trollshuo.com/post/Java_static_keyword/" />
@@ -36,26 +36,22 @@
 
 
 
-<link href="../../sass/main.min.0f1d63121256541625aa278410d089eefde38344ca29e9244ebfb24f2cf0aa60.css" rel="stylesheet">
+<link href="../../sass/main.min.0c49e3db1c78ff644ea8b059c58127d84d890e34007aeab628e3b6f1be3da061.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Java static关键字完整指南" />
 <meta property="og:description" content="最近整理了一部分资料，尝试通过探索static关键字的历史作为开端，接着阐述并结合它的自身特点来对实际运用场景作一些总结。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://trollshuo.com/post/Java_static_keyword/" />
+<meta property="og:url" content="https://trollshuo.com/post/Java_static_keyword/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-01-06T20:19:48+08:00" />
 <meta property="article:modified_time" content="2021-01-06T20:19:48+08:00" />
+
 <meta itemprop="name" content="Java static关键字完整指南">
-<meta itemprop="description" content="最近整理了一部分资料，尝试通过探索static关键字的历史作为开端，接着阐述并结合它的自身特点来对实际运用场景作一些总结。">
-<meta itemprop="datePublished" content="2021-01-06T20:19:48+08:00" />
+<meta itemprop="description" content="最近整理了一部分资料，尝试通过探索static关键字的历史作为开端，接着阐述并结合它的自身特点来对实际运用场景作一些总结。"><meta itemprop="datePublished" content="2021-01-06T20:19:48+08:00" />
 <meta itemprop="dateModified" content="2021-01-06T20:19:48+08:00" />
 <meta itemprop="wordCount" content="3416">
-
-
-
-<meta itemprop="keywords" content="Java,Keyword," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Java,Keyword," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Java static关键字完整指南"/>
 <meta name="twitter:description" content="最近整理了一部分资料，尝试通过探索static关键字的历史作为开端，接着阐述并结合它的自身特点来对实际运用场景作一些总结。"/>
 
@@ -71,7 +67,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -208,7 +203,7 @@ static关键字主要用于内存管理。它可以与变量、方法、代码�
 <p>例如，我们假设要给每个员工分配一个唯一的Id号。我们在Employee类中添加一个实例字段id和一个静态字段nextId。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -216,7 +211,7 @@ static关键字主要用于内存管理。它可以与变量、方法、代码�
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">class Employee
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">class Employee
 {
    private static int nextId = 1;
    private int id;
@@ -228,14 +223,14 @@ static关键字主要用于内存管理。它可以与变量、方法、代码�
 <p>让我们一起来实现一个简单的set方法。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">public void setId()
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">public void setId()
 {
    id = nextId;
    nextId++;
@@ -248,11 +243,11 @@ static关键字主要用于内存管理。它可以与变量、方法、代码�
 <p>因此，实际上执行的代码如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">*harry.*id = *Employee.*nextId;
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">*harry.*id = *Employee.*nextId;
 *Employee.*nextId++;
 </code></pre></td></tr></table>
 </div>
@@ -261,7 +256,7 @@ static关键字主要用于内存管理。它可以与变量、方法、代码�
 <p>例如，Math类中定义了一个静态常量：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -269,7 +264,7 @@ static关键字主要用于内存管理。它可以与变量、方法、代码�
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">public class Math
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">public class Math
 {
    . . .
    public static final double PI = 3.14159265358979323846;
@@ -282,7 +277,7 @@ static关键字主要用于内存管理。它可以与变量、方法、代码�
 <p>另一个我们经常使用的静态常量场景是System.out。它在System类中的声明如下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -290,7 +285,7 @@ static关键字主要用于内存管理。它可以与变量、方法、代码�
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">public class System
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">public class System
 {
    . . .
    public static final PrintStream out = . . .;
@@ -318,14 +313,14 @@ static关键字主要用于内存管理。它可以与变量、方法、代码�
 <p>我们来看一下NumberFormat类如何创建各种风格的formatter对象：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance();
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance();
 NumberFormat percentFormatter = NumberFormat.getPercentInstance();
 double x = 0.1;
 System.out.println(currencyFormatter.format(x)); // prints $0.10
@@ -360,7 +355,7 @@ System.out.println(percentFormatter.format(x)); // prints 10%
 <p>但是，我们应当注意的是，当类的第一个对象被创建时，静态块仅且只有被执行一次。从下面例子中说明这种情况：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -382,7 +377,7 @@ System.out.println(percentFormatter.format(x)); // prints 10%
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// filename: Main.java 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">// filename: Main.java 
 class Test { 
     static int I; 
     int j; 
@@ -412,7 +407,7 @@ class Main {
 <p>嵌套类分为两类：静态和非静态。被声明为静态的嵌套类被称为<strong>静态嵌套类</strong>。非静态嵌套类被称为<strong>内部类</strong>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -425,7 +420,7 @@ class Main {
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">class OuterClass {
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">class OuterClass {
     …
     // 静态嵌套类
     static class StaticNestedClass {
@@ -458,7 +453,7 @@ class Main {
 <p>举例说明一下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -466,7 +461,7 @@ class Main {
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">class OuterClass {
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">class OuterClass {
     …
     class InnerClass {
         …
@@ -585,7 +580,7 @@ class Main {
 
 
 
-<script type="text/javascript" src="../../js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="../../js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 <script type="application/javascript">

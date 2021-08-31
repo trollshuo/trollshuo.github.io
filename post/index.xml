@@ -6,7 +6,26 @@
     <description>Recent content in Posts on Trollshuo&#39;s BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 30 Jan 2021 21:47:39 +0800</lastBuildDate><atom:link href="https://trollshuo.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 31 Aug 2021 11:22:38 +0800</lastBuildDate><atom:link href="https://trollshuo.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>微服务架构最佳实践</title>
+      <link>https://trollshuo.com/post/microservice_architecture_best_practices/</link>
+      <pubDate>Tue, 31 Aug 2021 11:22:38 +0800</pubDate>
+      
+      <guid>https://trollshuo.com/post/microservice_architecture_best_practices/</guid>
+      <description>&lt;p&gt;微服务架构的转换并没有想象中那么容易，大部分技术领导者往往会低估项目的复杂性，从而犯下灾难性的错误。&lt;/p&gt;
+&lt;p&gt;在将单体系统转换为微服务之前，或者从零开始架构微服务，往往需要仔细思考清楚即将发生的技术和&lt;a href=&#34;https://codingsans.com/blog/making-microservices-work-developer-experience-matters&#34;&gt;组织挑战&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;因此，我们对来自5个不同国家（从以色列到美国）的技术领导者进行了13次采访，总结并归纳了这些案例到这篇文章中。&lt;/p&gt;
+&lt;p&gt;这篇文章适合于拥有以下想法的读者：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;从单体系统转换到微服务架构。&lt;/li&gt;
+&lt;li&gt;从富有经验的技术领导者那里收集见解。&lt;/li&gt;
+&lt;li&gt;了解微服务的缺点和优点。&lt;/li&gt;
+&lt;li&gt;避免灾难性的错误。&lt;/li&gt;
+&lt;li&gt;在微服务方面做出更好的技术决策。&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
     <item>
       <title>大话ES6</title>
       <link>https://trollshuo.com/post/ES6_Succinctly/</link>
