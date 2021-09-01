@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GitHub on Trollshuo&#39;s BLOG</title>
+    <link>https://trollshuo.com/tags/GitHub/</link>
+    <description>Recent content in GitHub on Trollshuo&#39;s BLOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 31 Aug 2021 20:43:57 +0800</lastBuildDate><atom:link href="https://trollshuo.com/tags/GitHub/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何从“ GitHub贡献列表”中移除贡献者</title>
+      <link>https://trollshuo.com/post/remove_github_contributors/</link>
+      <pubDate>Tue, 31 Aug 2021 20:43:57 +0800</pubDate>
+      
+      <guid>https://trollshuo.com/post/remove_github_contributors/</guid>
+      <description>&lt;p&gt;哎哎哎，GitHub贡献列表怎么就莫名其妙多出来一个贡献者？翻看了提交记录，原来是自己的锅？某次提交时忘记使用&lt;code&gt;git config&lt;/code&gt;来重新设置名字和电子邮件地址？&lt;a href=&#34;https://ohshitgit.com/&#34;&gt;能不能给我台时光机啊&lt;/a&gt;? 啊不对，能不能从“ GitHub贡献列表”中移除贡献者啊？&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://trollshuo.com/tags/GitHub/</loc>
+    <lastmod>2021-08-31T20:43:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://trollshuo.com/post/</loc>
+    <lastmod>2021-08-31T20:43:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://trollshuo.com/tags/</loc>
+    <lastmod>2021-08-31T20:43:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://trollshuo.com/</loc>
+    <lastmod>2021-08-31T20:43:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://trollshuo.com/post/remove_github_contributors/</loc>
+    <lastmod>2021-08-31T20:43:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://trollshuo.com/tags/BestPractice/</loc>
     <lastmod>2021-08-31T11:22:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -16,28 +51,7 @@
   </url>
   
   <url>
-    <loc>https://trollshuo.com/post/</loc>
-    <lastmod>2021-08-31T11:22:38+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://trollshuo.com/tags/</loc>
-    <lastmod>2021-08-31T11:22:38+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://trollshuo.com/tags/Translate/</loc>
-    <lastmod>2021-08-31T11:22:38+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://trollshuo.com/</loc>
     <lastmod>2021-08-31T11:22:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

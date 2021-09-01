@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>如何从“ GitHub贡献列表”中移除贡献者 - Trollshuo&#39;s BLOG</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Trollshuo" /><meta name="description" content="哎哎哎，GitHub贡献列表怎么就莫名其妙多出来一个贡献者？翻看了提交记录，原来是自己的锅？某次提交时忘记使用git config来重新设置名字和电子邮件地址？能不能给我台时光机啊? 啊不对，能不能从“ GitHub贡献列表”中移除贡献者啊？
+" /><meta name="keywords" content="Tech”, “Internet" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
+
+
+<link rel="canonical" href="https://trollshuo.com/post/remove_github_contributors/" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="manifest" href="../../manifest.json">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="../../sass/main.min.0c49e3db1c78ff644ea8b059c58127d84d890e34007aeab628e3b6f1be3da061.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="如何从“ GitHub贡献列表”中移除贡献者" />
+<meta property="og:description" content="哎哎哎，GitHub贡献列表怎么就莫名其妙多出来一个贡献者？翻看了提交记录，原来是自己的锅？某次提交时忘记使用git config来重新设置名字和电子邮件地址？能不能给我台时光机啊? 啊不对，能不能从“ GitHub贡献列表”中移除贡献者啊？" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://trollshuo.com/post/remove_github_contributors/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-08-31T20:43:57+08:00" />
+<meta property="article:modified_time" content="2021-08-31T20:43:57+08:00" />
+
+<meta itemprop="name" content="如何从“ GitHub贡献列表”中移除贡献者">
+<meta itemprop="description" content="哎哎哎，GitHub贡献列表怎么就莫名其妙多出来一个贡献者？翻看了提交记录，原来是自己的锅？某次提交时忘记使用git config来重新设置名字和电子邮件地址？能不能给我台时光机啊? 啊不对，能不能从“ GitHub贡献列表”中移除贡献者啊？"><meta itemprop="datePublished" content="2021-08-31T20:43:57+08:00" />
+<meta itemprop="dateModified" content="2021-08-31T20:43:57+08:00" />
+<meta itemprop="wordCount" content="1346">
+<meta itemprop="keywords" content="GitHub," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="如何从“ GitHub贡献列表”中移除贡献者"/>
+<meta name="twitter:description" content="哎哎哎，GitHub贡献列表怎么就莫名其妙多出来一个贡献者？翻看了提交记录，原来是自己的锅？某次提交时忘记使用git config来重新设置名字和电子邮件地址？能不能给我台时光机啊? 啊不对，能不能从“ GitHub贡献列表”中移除贡献者啊？"/>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-186172087-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-186172087-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="../../" class="logo">Trollshuo&#39;s BLOG</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="../../">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="../../post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="../../tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="../../about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="../../" class="logo">Trollshuo&#39;s BLOG</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="../../">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="../../post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="../../tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="../../about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">如何从“ GitHub贡献列表”中移除贡献者</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-08-31 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#全局更改名字和电子邮件地址">全局更改名字和电子邮件地址</a></li>
+        <li><a href="#无论如何我就是要移除贡献者httpsstackoverflowcomquestions44563131removing-contributor-from-github-com"><a href="https://stackoverflow.com/questions/44563131/removing-contributor-from-github-com">无论如何，我就是要移除贡献者</a></a></li>
+        <li><a href="#小孩才做选择我全都要">小孩才做选择，我全都要</a></li>
+        <li><a href="#有没有更好的方法">有没有更好的方法</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>哎哎哎，GitHub贡献列表怎么就莫名其妙多出来一个贡献者？翻看了提交记录，原来是自己的锅？某次提交时忘记使用<code>git config</code>来重新设置名字和电子邮件地址？<a href="https://ohshitgit.com/">能不能给我台时光机啊</a>? 啊不对，能不能从“ GitHub贡献列表”中移除贡献者啊？</p>
+<p>对于GitHub而言，贡献者其实就是版本库中任何有提交记录的用户。</p>
+<p>换句话说，一旦这些用户在你的版本库历史中有提交记录，就代表着他们的代码行都是由他们添加的。即使删除了他们所有的代码行，他们仍然会显示为贡献者。</p>
+<p>付出惨痛代价之后，终于含泪承认了以上事实。</p>
+<p>那是不是没救了？ 莫慌，这篇文章或许会有帮助。</p>
+<p>接下来，就是最最重要的事：</p>
+<p><strong>请使用 <code>git config</code> 重新设置好正确的名字和电子邮件地址</strong></p>
+<h2 id="全局更改名字和电子邮件地址">全局更改名字和电子邮件地址</h2>
+<p>先缓一缓，事情也许并没有那么糟糕？如果移除贡献者不是必须的，能接受只更改提交记录里的名字和电子邮件地址的话，那么请往下看。</p>
+<p>查文档后发现，<a href="https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History">filter- branch</a>命令尽管不能移除贡献者，用处可一点不小。</p>
+<p><strong>任何情况下，都可以通过 filter-branch 来一次性修改多个提交中的邮箱地址。</strong></p>
+<p>不过由于这个命令只能修改属于自己的电子邮件地址，所以应该使用 &ndash;commit-filter：</p>
+<p>修改用户作者信息</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">
+  git filter-branch --commit-filter &#39;
+        if [ &#34;$GIT_AUTHOR_EMAIL&#34; = &#34;your-old-email@localhost&#34; ];
+        then
+                GIT_AUTHOR_NAME=&#34;Your Correct Name&#34;;
+                GIT_AUTHOR_EMAIL=&#34;your-correct-email@example.com&#34;;
+                git commit-tree &#34;$@&#34;;
+        else
+                git commit-tree &#34;$@&#34;;
+        fi&#39; HEAD
+
+</code></pre></td></tr></table>
+</div>
+</div><p>修改用户提交者信息</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">
+  git filter-branch  -f --commit-filter &#39;
+        if [ &#34;$GIT_COMMITTER_EMAIL&#34; = &#34;your-old-email@localhost&#34; ];
+        then
+                GIT_COMMITTER_NAME=&#34;Your Correct Name&#34;;
+                GIT_COMMITTER_EMAIL=&#34;your-correct-email@example.com&#34;;
+                git commit-tree &#34;$@&#34;;
+        else
+                git commit-tree &#34;$@&#34;;
+        fi&#39; HEAD
+
+</code></pre></td></tr></table>
+</div>
+</div><p>这两个命令会遍历并重写每一个提交来包含你的新名字和新邮箱地址。 因为提交包含了它们父提交的 SHA-1 校验和，这两个命令会修改你的历史中的每一个提交的 SHA-1 校验和， 而不仅仅只是那些匹配邮箱地址的提交。</p>
+<h2 id="无论如何我就是要移除贡献者httpsstackoverflowcomquestions44563131removing-contributor-from-github-com"><a href="https://stackoverflow.com/questions/44563131/removing-contributor-from-github-com">无论如何，我就是要移除贡献者</a></h2>
+<p>如果不管付出什么惨痛代价，好吧，那么开始之前，请心中大喊三遍：</p>
+<blockquote>
+<p><strong>备份不做，十恶不赦</strong></p>
+</blockquote>
+<p>如果你是版本库的所有者，可以使用版本库的重命名功能。恭喜你，请往下看。</p>
+<p>这个方法就是创建-重命名-删除原版本库。本质上就是创建原版本库的副本，接着过滤掉某个贡献者的提交，再把两个版本库的名字互相交换，这样就得到了一个全新的版本库。</p>
+<p>步骤如下：</p>
+<ol>
+<li>在GitHub上创建一个全新的<code>copy</code>版本库。</li>
+<li>从<code>original</code>版本库中复制并挑选只包含想要展示的贡献者的提交内容。</li>
+<li>将<code>original</code>版本库重命名为to_be_deleted，将<code>copy</code>版本库重命名为<code>original</code>版本库。</li>
+</ol>
+<p>如何挑选<code>original</code>版本库只包含想要展示的贡献者的提交内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">git remote add localrepository https://github.com/your-git-account/original.git
+git pull localrepository
+git cherry-pick &lt;commit&gt;
+git push 
+</code></pre></td></tr></table>
+</div>
+</div><p>其中，localrepository是远程<code>original</code>版本库的本地名称，我们将从该版本库拉取提交。</p>
+<h2 id="小孩才做选择我全都要">小孩才做选择，我全都要</h2>
+<p>那么能不能把这两个方法结合起来了？当然可以。</p>
+<p>如何做呢？把以上的两个方法按照文章顺序执行即可。</p>
+<p>还记得如何全局更改名字和电子邮件地址吗？使用那两条filter-branch 命令来修改提交中的名字和电子邮箱地址。更改过后的版本库，与我们想要的版本库是一致的。</p>
+<p>接下来，在操作创建-重命名-删除原版本库过程中，我们可以直接复制<code>original</code>版本库，而无需挑选提交内容了。</p>
+<p>更改后的步骤二内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">git remote add localrepository https://github.com/your-git-account/original.git
+git pull localrepository
+git push 
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="有没有更好的方法">有没有更好的方法</h2>
+<p>很遗憾，并没有。</p>
+<p>或许能等到GitHub开放移除贡献者功能的那一天？大概率也没有。</p>
+<p>当然啦，如果有更好的方法，希望能在评论区告诉我。</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Trollshuo</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-08-31
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="../../tags/GitHub/">GitHub</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="../../post/microservice_architecture_best_practices/">
+            <span class="next-text nav-default">微服务架构最佳实践</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2021-08-31 20:43:57 \u002b0800 CST',
+        title: '如何从“ GitHub贡献列表”中移除贡献者',
+        clientID: '8c6a8d0cc1c950b076a7',
+        clientSecret: 'f7eec8d92ac9ae49c662989d52e7f889016e20a8',
+        repo: 'trollshuo.github.io',
+        owner: 'trollshuo',
+        admin: ['trollshuo'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/trollshuo/" class="iconfont icon-github" title="github"></a>
+  <a href="https://trollshuo.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>Trollshuo</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="../../js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-186172087-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>
