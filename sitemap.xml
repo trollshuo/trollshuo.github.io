@@ -2,28 +2,56 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://trollshuo.com/tags/GitHub/</loc>
-    <lastmod>2021-08-31T20:43:57+08:00</lastmod>
+    <loc>https://trollshuo.com/tags/BestPractice/</loc>
+    <lastmod>2022-03-12T15:10:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://trollshuo.com/tags/Comments/</loc>
+    <lastmod>2022-03-12T15:10:14+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://trollshuo.com/post/</loc>
-    <lastmod>2021-08-31T20:43:57+08:00</lastmod>
+    <lastmod>2022-03-12T15:10:14+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://trollshuo.com/tags/</loc>
-    <lastmod>2021-08-31T20:43:57+08:00</lastmod>
+    <lastmod>2022-03-12T15:10:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://trollshuo.com/tags/Translate/</loc>
+    <lastmod>2022-03-12T15:10:14+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://trollshuo.com/</loc>
+    <lastmod>2022-03-12T15:10:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://trollshuo.com/post/best-practices-for-writing-code-comments/</loc>
+    <lastmod>2022-03-12T15:10:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://trollshuo.com/tags/GitHub/</loc>
     <lastmod>2021-08-31T20:43:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -37,21 +65,7 @@
   </url>
   
   <url>
-    <loc>https://trollshuo.com/tags/BestPractice/</loc>
-    <lastmod>2021-08-31T11:22:38+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://trollshuo.com/tags/Microservice/</loc>
-    <lastmod>2021-08-31T11:22:38+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://trollshuo.com/tags/Translate/</loc>
     <lastmod>2021-08-31T11:22:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

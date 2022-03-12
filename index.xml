@@ -6,7 +6,18 @@
     <description>Recent content on Trollshuo&#39;s BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 31 Aug 2021 20:43:57 +0800</lastBuildDate><atom:link href="https://trollshuo.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Mar 2022 15:10:14 +0800</lastBuildDate><atom:link href="https://trollshuo.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>代码注释最佳实践</title>
+      <link>https://trollshuo.com/post/best-practices-for-writing-code-comments/</link>
+      <pubDate>Sat, 12 Mar 2022 15:10:14 +0800</pubDate>
+      
+      <guid>https://trollshuo.com/post/best-practices-for-writing-code-comments/</guid>
+      <description>&lt;p&gt;为什么要翻译这篇文章？&lt;/p&gt;
+&lt;p&gt;工作中遇到一些代码，添加了注释但是表达出来的效果往往不甚理想。同时发现网上很多资源都是教你如何写代码，却很少讲述怎么写注释。&lt;/p&gt;
+&lt;p&gt;因此试着翻译一下，给自己长点见识。当然也希望给更多的人带来帮助。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>如何从“ GitHub贡献列表”中移除贡献者</title>
       <link>https://trollshuo.com/post/remove_github_contributors/</link>

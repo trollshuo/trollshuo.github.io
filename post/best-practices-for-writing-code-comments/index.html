@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>代码注释最佳实践 - Trollshuo&#39;s BLOG</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Trollshuo" /><meta name="description" content="为什么要翻译这篇文章？
+工作中遇到一些代码，添加了注释但是表达出来的效果往往不甚理想。同时发现网上很多资源都是教你如何写代码，却很少讲述怎么写注释。
+因此试着翻译一下，给自己长点见识。当然也希望给更多的人带来帮助。
+" /><meta name="keywords" content="Tech”, “Internet" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
+
+
+<link rel="canonical" href="https://trollshuo.com/post/best-practices-for-writing-code-comments/" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="manifest" href="../../manifest.json">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="../../sass/main.min.0c49e3db1c78ff644ea8b059c58127d84d890e34007aeab628e3b6f1be3da061.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="代码注释最佳实践" />
+<meta property="og:description" content="为什么要翻译这篇文章？
+工作中遇到一些代码，添加了注释但是表达出来的效果往往不甚理想。同时发现网上很多资源都是教你如何写代码，却很少讲述怎么写注释。
+因此试着翻译一下，给自己长点见识。当然也希望给更多的人带来帮助。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://trollshuo.com/post/best-practices-for-writing-code-comments/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-03-12T15:10:14+08:00" />
+<meta property="article:modified_time" content="2022-03-12T15:10:14+08:00" />
+
+<meta itemprop="name" content="代码注释最佳实践">
+<meta itemprop="description" content="为什么要翻译这篇文章？
+工作中遇到一些代码，添加了注释但是表达出来的效果往往不甚理想。同时发现网上很多资源都是教你如何写代码，却很少讲述怎么写注释。
+因此试着翻译一下，给自己长点见识。当然也希望给更多的人带来帮助。"><meta itemprop="datePublished" content="2022-03-12T15:10:14+08:00" />
+<meta itemprop="dateModified" content="2022-03-12T15:10:14+08:00" />
+<meta itemprop="wordCount" content="3210">
+<meta itemprop="keywords" content="Comments,BestPractice,Translate," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="代码注释最佳实践"/>
+<meta name="twitter:description" content="为什么要翻译这篇文章？
+工作中遇到一些代码，添加了注释但是表达出来的效果往往不甚理想。同时发现网上很多资源都是教你如何写代码，却很少讲述怎么写注释。
+因此试着翻译一下，给自己长点见识。当然也希望给更多的人带来帮助。"/>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-186172087-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-186172087-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="../../" class="logo">Trollshuo&#39;s BLOG</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="../../">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="../../post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="../../tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="../../about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="../../" class="logo">Trollshuo&#39;s BLOG</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="../../">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="../../post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="../../tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="../../about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">代码注释最佳实践</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-03-12 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#tldr">TL;DR</a></li>
+        <li><a href="#规则一-注释不应与代码语义重复">规则一: 注释不应与代码语义重复</a></li>
+        <li><a href="#规则二-代码表达信息而不是使用注释">规则二: 代码表达信息而不是使用注释</a></li>
+        <li><a href="#规则三-如果写出不清不楚的注释那么往往说明代码不够清晰">规则三: 如果写出不清不楚的注释，那么往往说明代码不够清晰</a></li>
+        <li><a href="#规则四-注释应当减少困惑而不是成为其来源">规则四: 注释应当减少困惑而不是成为其来源</a></li>
+        <li><a href="#规则五-在注释中解释不规范的代码">规则五: 在注释中解释不规范的代码</a></li>
+        <li><a href="#规则六-复制的代码应当提供链接来源注释">规则六: 复制的代码应当提供链接来源注释</a></li>
+        <li><a href="#规则七-在需要的位置为外部参考资料添加链接注释">规则七: 在需要的位置为外部参考资料添加链接注释</a></li>
+        <li><a href="#规则八-注释修复-bug-的原因">规则八: 注释修复 BUG 的原因</a></li>
+        <li><a href="#规则九-使用注释来标记功能实现-todo">规则九: 使用注释来标记功能实现 TODO</a></li>
+        <li><a href="#结论">结论</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>为什么要翻译这篇文章？</p>
+<p>工作中遇到一些代码，添加了注释但是表达出来的效果往往不甚理想。同时发现网上很多资源都是教你如何写代码，却很少讲述怎么写注释。</p>
+<p>因此试着翻译一下，给自己长点见识。当然也希望给更多的人带来帮助。</p>
+<h2 id="tldr">TL;DR</h2>
+<p><strong>规则一: 注释不应与代码语义重复</strong></p>
+<p><strong>规则二: 代码表达信息而不是使用注释</strong></p>
+<p><strong>规则三: 如果写出不清不楚的注释，那么往往说明代码不够清晰</strong></p>
+<p><strong>规则四: 注释应当减少困惑而不是成为其来源</strong></p>
+<p><strong>规则五: 在注释中解释不规范的代码</strong></p>
+<p><strong>规则六: 复制的代码应当提供链接来源注释</strong></p>
+<p><strong>规则七: 在需要的位置为外部参考资料添加链接注释</strong></p>
+<p><strong>规则八: 注释修复 BUG 的原因</strong></p>
+<p><strong>规则九: 使用注释来标记功能实现 TODO</strong></p>
+<p>那么每一条规则背后都是怎么总结出来的呢？以及如何在日常开发中应用这些规则？它的使用场景又是什么呢？</p>
+<p>接下来的文章内容主要就是解释上述的问题。</p>
+<h2 id="规则一-注释不应与代码语义重复">规则一: 注释不应与代码语义重复</h2>
+<p>许多初学者会在代码中添加很多详细的注释。原因多种多样，注释的方式也令人眼花缭乱。</p>
+<p>例如，在每个大括号后面添加表明结束标志的注释：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="k">if</span><span class="o">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">3</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">...</span>
+<span class="o">}</span> <span class="c1">// if
+</span></code></pre></td></tr></table>
+</div>
+</div><p>在每一行语句后面添加注释：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">1</span><span class="o">;</span>   <span class="c1">// Add one to i
+</span></code></pre></td></tr></table>
+</div>
+</div><p>更有甚者，在每行代码都写上注释：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="c1">// create a for loop // &lt;-- comment
+</span><span class="c1"></span><span class="k">for</span> <span class="c1">// start for loop
+</span><span class="c1"></span><span class="o">(</span> <span class="c1">// round bracket
+</span><span class="c1"></span>  <span class="c1">// newline
+</span><span class="c1"></span><span class="kt">int</span> <span class="c1">// type for declaration
+</span><span class="c1"></span><span class="n">i</span>   <span class="c1">// name for declatation
+</span><span class="c1"></span><span class="o">=</span>   <span class="c1">// assignment operator for declaration
+</span><span class="c1"></span><span class="n">0</span>   <span class="c1">// start value for i
+</span><span class="c1"></span><span class="o">)</span>   <span class="c1">// end for loop
+</span></code></pre></td></tr></table>
+</div>
+</div><p>以上这些案例的注释往往带来负面效果，它们会：</p>
+<ul>
+<li>
+<p>造成视觉上的干扰</p>
+</li>
+<li>
+<p>花费更多时间读写</p>
+</li>
+<li>
+<p>变得过时</p>
+</li>
+</ul>
+<p>而且这些注释都是与代码语义重复，在没有增加任何有用信息的情况下，产生了更多的维护成本。</p>
+<h2 id="规则二-代码表达信息而不是使用注释">规则二: 代码表达信息而不是使用注释</h2>
+<p>注释的另一个误用是本应使用代码表达的信息，却使用了注释。</p>
+<p>这是一个会经常犯错的例子，那就是使用单个字母命名变量，然后添加注释来描述其用途。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kd">static</span> <span class="n">Node</span> <span class="nf">getBestChildNode</span><span class="o">(</span><span class="n">Node</span> <span class="n">node</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Node</span> <span class="n">n</span><span class="o">;</span> <span class="c1">// best child node candidate
+</span><span class="c1"></span>    <span class="k">for</span><span class="o">(</span><span class="n">Node</span> <span class="n">node</span><span class="o">:</span> <span class="n">node</span><span class="o">.</span><span class="na">getChildren</span><span class="o">())</span> <span class="o">{</span>
+        <span class="c1">// update n if the current state is better
+</span><span class="c1"></span>        <span class="k">if</span><span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">utility</span><span class="o">(</span><span class="n">node</span><span class="o">)</span> <span class="o">&gt;</span> <span class="n">utility</span><span class="o">(</span><span class="n">n</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">node</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">n</span><span class="o">;</span>
+<span class="o">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><p>这种情况下，通过更好的变量命名，可以避免添加注释：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kd">static</span> <span class="n">Node</span> <span class="nf">getBestChildNode</span><span class="o">(</span><span class="n">Node</span> <span class="n">node</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Node</span> <span class="n">bestNode</span><span class="o">;</span>
+    <span class="k">for</span><span class="o">(</span><span class="n">Node</span> <span class="n">currentNode</span><span class="o">:</span> <span class="n">node</span><span class="o">.</span><span class="na">getChildren</span><span class="o">())</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">bestNode</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">utility</span><span class="o">(</span><span class="n">currentNode</span><span class="o">)</span> <span class="o">&gt;</span> <span class="n">utility</span><span class="o">(</span><span class="n">bestNode</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">bestNode</span> <span class="o">=</span> <span class="n">currentNode</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">bestNode</span><span class="o">;</span>
+<span class="o">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><p>正如 Kernighan 和 Plauger 在《编程风格的要素》中写道：</p>
+<blockquote>
+<p>不要为烂代码添加注释&mdash;直接重写它。</p>
+</blockquote>
+<h2 id="规则三-如果写出不清不楚的注释那么往往说明代码不够清晰">规则三: 如果写出不清不楚的注释，那么往往说明代码不够清晰</h2>
+<p>Unix 源码中有一个最臭名昭著的注释是，“你不应该理解这个”，它出现在一些上下文切换代码之前。Dennis Ritchie 后来解释说，它的目的是“本着‘这不会出现在考试中’的想法，而不是作为一个厚颜无耻的挑战“。不幸的是，事实证明，他和合著者 Ken Thompson 自己也不明白，后来不得不重写。</p>
+<p>这就要提一下 Kernighan 定律了：</p>
+<blockquote>
+<p>调试的难度是当初写代码时的两倍。因此，如果你把代码写得越高深莫测，根据定义，你就越没有聪明到可以调试它。</p>
+</blockquote>
+<p>这种直接警告代码阅读者远离代码的行为像极了你打开了汽车的危险灯：相当于承认你知道正在做非法的事情。我们需要取而代之的是，把代码重写成足够容易理解，方便更好解释，最好是一看就懂的。</p>
+<h2 id="规则四-注释应当减少困惑而不是成为其来源">规则四: 注释应当减少困惑而不是成为其来源</h2>
+<p>如果我们讨论烂注释，却不提 Steven Levy 的《黑客》中的这个故事，那这篇文章就索然无味了。</p>
+<p>计算机革命的英雄：</p>
+<blockquote>
+<p>[ Peter Samson ] 拒绝在他的源码中添加注释，特别隐晦地解释他在某一特定时间正在做什么。在 Samson 写的一个分布广泛的程序有数百条汇编语言指令，只有一条包含数字1750的指令旁边有注释。这个注释是 RIPJSB，人们对它的含义绞尽脑汁，直到有人发现，1750年是巴赫去世的年份，而 Samson 写的是 Rest In Peace Johann Sebastian Bach 的简写。</p>
+</blockquote>
+<p>虽然我和其他人一样也欣赏一个好的黑客，但这并不具有示范意义。如果你的注释造成了困惑而不是消除困惑，那最好把它删掉。</p>
+<h2 id="规则五-在注释中解释不规范的代码">规则五: 在注释中解释不规范的代码</h2>
+<p>对别人可能会认为不需要或多余的代码进行注释是个好主意。例如 <a href="https://github.com/mit-cml/appinventor-sources">App Inventor</a>的这段代码（所有正面例子的出处）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="n">Object</span> <span class="n">value</span> <span class="o">=</span> <span class="o">(</span><span class="k">new</span> <span class="n">JSONTokener</span><span class="o">(</span><span class="n">jsonString</span><span class="o">)).</span><span class="na">nextValue</span><span class="o">();</span>
+<span class="c1">// Note that JSONTokener.nextValue() may return
+</span><span class="c1">// a value equals() to null.
+</span><span class="c1"></span><span class="k">if</span><span class="o">(</span><span class="n">value</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">value</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="kc">null</span><span class="o">))</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如果没有注释，有人可能会想要 &ldquo;优化&quot;这段代码，或者把它看作是一个神秘但必不可少的咒语。一般来说，解释为什么需要这些代码会节省未来代码阅读者的时间和焦虑。</p>
+<p>对于代码是否需要解释，往往需要做出判断。在学习 Kotlin 时，我在一个 Android 教程中遇到了这样的代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">if</span><span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="k">true</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>我立即想，是否可以用以下方式代替：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">if</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>就像在 Java 中那样。经过一番<a href="https://kotlinlang.org/docs/idioms.html#nullable-boolean">研究</a>，我了解到，为了避免丑陋的空值检查，可空的布尔变量会被明确地比作&quot;真&rdquo;。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">!=</span> <span class="k">null</span> <span class="o">&amp;&amp;</span> <span class="n">b</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>所以强烈建议，除非是专门为新手写的教程，否则不要把常见习语的注释写进去。</p>
+<h2 id="规则六-复制的代码应当提供链接来源注释">规则六: 复制的代码应当提供链接来源注释</h2>
+<p>如果你像大多数程序员那样，有时会使用在网上找到的代码。那么最好为其提供源码的链接出处，这会方便未来的代码阅读者获得完整的背景信息。例如：</p>
+<ul>
+<li>
+<p>解决了什么问题</p>
+</li>
+<li>
+<p>谁提供的代码</p>
+</li>
+<li>
+<p>解决方案被推荐的原因</p>
+</li>
+<li>
+<p>评论者对它的看法</p>
+</li>
+<li>
+<p>它是否仍然有效</p>
+</li>
+<li>
+<p>如何改进它</p>
+</li>
+</ul>
+<p>一个典型的参考例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="cm">/** Converts a Drawable to Bitmap. via https://stackoverflow.com/a/46018816/2219998. */</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>根据答案的链接可以看出：</p>
+<ul>
+<li>
+<p>该代码的作者是Tomáš Procházka，他在 StackOverflow 上排名前3%。</p>
+</li>
+<li>
+<p>一个评论者提供了一个优化方法，已经被纳入到了 repo 中。</p>
+</li>
+<li>
+<p>另一个评论者提出了一个避免边界情况的方法。</p>
+</li>
+</ul>
+<p>与这个注释形成鲜明对比的注释反例（为保护隐私，稍作改动）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="c1">// Magical formula taken from a stackoverflow post, reputedly related to
+</span><span class="c1">// human vision perception.
+</span><span class="c1"></span><span class="k">return</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="o">(</span><span class="n">0</span><span class="o">.</span><span class="na">3</span> <span class="o">*</span> <span class="n">red</span> <span class="o">+</span> <span class="n">0</span><span class="o">.</span><span class="na">59</span> <span class="o">*</span> <span class="n">green</span> <span class="o">+</span> <span class="n">0</span><span class="o">.</span><span class="na">11</span> <span class="o">*</span> <span class="n">blue</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>任何想了解这段代码的人都必须去搜索这个公式。粘贴 URL 的做法明显要比后来找到参考资料快得多。</p>
+<p>一些程序员可能不愿意表明这不是他们自己写的代码，但复用代码是一个明智的选择，不仅可以节省时间，而且让你得到更多关注的好处。当然，你不应该<a href="https://stackoverflow.blog/2019/11/26/copying-code-from-stack-overflow-you-might-be-spreading-security-vulnerabilities/">粘贴你不理解的代码</a>。</p>
+<p>人们从 Stack Overflow 的问题和答案中<a href="https://stackoverflow.blog/2021/04/19/how-often-do-people-actually-copy-and-paste-from-stack-overflow-now-we-know/">复制了大量</a>的代码。这些代码属于知识共享（Creative Commons）许可范围，需要注明出处。参考链接注释就可以很好的满足这一要求。</p>
+<p>同样地，你应该注释那些有帮助的参考教程链接，这样就可以再次找到它们，也是对作者的感谢：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="c1">// Many thanks to Chris Veness at http://www.movable-type.co.uk/scripts/latlong.html
+</span><span class="c1">// for a great reference and examples.
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="规则七-在需要的位置为外部参考资料添加链接注释">规则七: 在需要的位置为外部参考资料添加链接注释</h2>
+<p>当然，不是所有的参考资料都是源自 Stack Overflow。</p>
+<p>参考例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="c1">// http://tools.ietf.org/html/rfc4180 suggests that CSV lines
+</span><span class="c1">// should be terminated by CRLF, hence the \r\n.
+</span><span class="c1"></span><span class="n">csvStringBuilder</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;\r\n&#34;</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>添加标准文档和其他文档的链接注释可以帮助代码阅读者理解代码所要解决的问题。虽然这些信息可能就在设计文档的某个地方，但一个位置良好的注释可以在最需要的时候给代码阅读者提供方向。在这个例子中，跟随链接表明 RFC 4180 已经被 RFC 7111 更新了，这是一个很有用的信息。</p>
+<h2 id="规则八-注释修复-bug-的原因">规则八: 注释修复 BUG 的原因</h2>
+<p>不仅仅要在最初写代码的时候，而且要在修改代码的时候，特别是在修复 BUG 的时候，都应该添加注释。</p>
+<p>参考注释：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java">  <span class="c1">// NOTE: At least in Firefox 2, if the user drags outside of the browser window,
+</span><span class="c1"></span>  <span class="c1">// mouse-move (and even mouse-down) events will not be received until
+</span><span class="c1"></span>  <span class="c1">// the user drags back inside the window. A workaround for this issue
+</span><span class="c1"></span>  <span class="c1">// exists in the implementation for onMouseLeave().
+</span><span class="c1"></span>  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onMouseMove</span><span class="o">(</span><span class="n">Widget</span> <span class="n">sender</span><span class="o">,</span> <span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span> <span class="o">..</span> <span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这些注释不仅可以帮助代码阅读者理解当前方法和引用方法中的代码，而且对于判断是否还需要这些代码以及如何测试这些代码很有帮助。</p>
+<p>注释对引用问题跟踪器也有帮助：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="c1">// Use the name as the title if the properties did not include one (issue #1425)
+</span></code></pre></td></tr></table>
+</div>
+</div><p>虽然<code>git blame</code> 可以用来查找添加或修改某一行的提交，但 commit 的信息往往很简短，而且最重要的修改（如修复问题#1425）可能不是最近 commit 的一部分（例如，将一个方法从一个文件移到另一个文件）。</p>
+<h2 id="规则九-使用注释来标记功能实现-todo">规则九: 使用注释来标记功能实现 TODO</h2>
+<p>有时，即使代码有已知的局限性，也有必要对其进行检查。虽然不分享自己代码中已知的缺陷是很诱人的，但最好是把这些缺陷明确地表达出来。</p>
+<p>例如使用 TODO 注释：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="c1">// TODO(hal): We are making the decimal separator be a period, 
+</span><span class="c1">// regardless of the locale of the phone. We need to think about 
+</span><span class="c1">// how to allow comma as decimal separator, which will require 
+</span><span class="c1">// updating number parsing and other places that transform numbers 
+</span><span class="c1">// to strings, such as FormatAsDecimal
+</span></code></pre></td></tr></table>
+</div>
+</div><p>使用这种注释的标准格式有助于衡量和解决技术债务。更好的办法是，在你的跟踪器中添加一个问题，并在注释中引用该问题。</p>
+<h2 id="结论">结论</h2>
+<p>希望上面的例子已经表明，注释并不是为烂代码提供借口或修复。它们通过提供不同类型的信息来补充优秀的代码。正如 Stack Overflow 的联合创始人 Jeff Atwood 所写的那样：</p>
+<blockquote>
+<p><a href="https://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why/">代码告诉你如何实现，注释告诉你实现的原因</a></p>
+</blockquote>
+<p>遵循这些规则应该可以为你和你的伙伴们节省时间和减少挫败感。</p>
+<p>期待在评论中可以集思广益，再度完善这些规则。</p>
+<blockquote>
+<p>本文翻译自 <a href="https://stackoverflow.blog/2021/12/23/best-practices-for-writing-code-comments/">Best practices for writing code comments - Stack Overflow Blog</a></p>
+</blockquote>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Trollshuo</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2022-03-12
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="../../tags/Comments/">Comments</a>
+          <a href="../../tags/BestPractice/">BestPractice</a>
+          <a href="../../tags/Translate/">Translate</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="../../post/remove_github_contributors/">
+            <span class="next-text nav-default">如何从“ GitHub贡献列表”中移除贡献者</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2022-03-12 15:10:14 \u002b0800 CST',
+        title: '代码注释最佳实践',
+        clientID: '8c6a8d0cc1c950b076a7',
+        clientSecret: 'f7eec8d92ac9ae49c662989d52e7f889016e20a8',
+        repo: 'trollshuo.github.io',
+        owner: 'trollshuo',
+        admin: ['trollshuo'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/trollshuo/" class="iconfont icon-github" title="github"></a>
+  <a href="https://trollshuo.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Trollshuo</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="../../js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-186172087-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>
